@@ -1,8 +1,10 @@
 <template>
   <div id="home">
     <ContentSquare v-for="square in squares"
-                   :content="square.content"
-                   :backgroundImageUrl="square.backgroundImageUrl"/>
+                   :backgroundImageUrl="square.backgroundImageUrl"
+                   :detailsHTML="square.detailsHTML"
+                   :title="square.title"
+                   :company="square.company"/>
   </div>
 </template>
 
