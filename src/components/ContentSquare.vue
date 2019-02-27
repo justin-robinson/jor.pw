@@ -1,17 +1,15 @@
 <template>
-  <div class="section">
+  <div class="section col-2">
     <div class="section-padding">
-      <div class="section-content">
-        <img alt="company log" :src="getImgUrl(backgroundImageUrl)" v-bind:alt="backgroundImageUrl">
+      <div class="content-wrapper">
         <div class="content">
           <div class="header">
             <h2 class="company">{{ company }}</h2>
             <span class="title">{{ title }}</span>
           </div>
-          <div class="details-wrapper">
-            <div class="details" v-html="detailsHTML"></div>
-          </div>
+          <div class="details" v-html="detailsHTML"></div>
         </div>
+        <img class="background" alt="company log" :src="getImgUrl(backgroundImageUrl)" v-bind:alt="backgroundImageUrl">
       </div>
     </div>
   </div>
@@ -27,16 +25,15 @@
     @Prop() private title!: string;
     @Prop() private company!: string;
 
-    getImgUrl(pic) {
-      return require('../assets/' + pic)
+    public getImgUrl(pic: string): string {
+      return require('../assets/' + pic);
     }
 
   }
 </script>
 
 <style scoped lang="scss">
-  $mobile-phone: "only screen and (max-width : 767px)";
-  $section_height: 350px;
+  $section_height: 500px;
   $section_padding: 10px;
 
   $z-index: 0;
@@ -46,69 +43,73 @@
   }
 
   .section {
-    display: inline-block;
-    width: 50%;
     z-index: next-z-index();
-    @media #{$mobile-phone} {
-      width: 100%;
-    }
+    display: inline-flex;
+    height: $section_height;
+    width: 100%;
+    margin: $section_padding;
 
     .section-padding {
-      padding: $section_padding;
+      //padding: $section_padding;
       text-align: center;
       z-index: next-z-index();
+      width: 100%;
+      height: 100%;
     }
 
-    .section-content {
+    .content-wrapper {
       background: #ddd;
       border-radius: .2rem;
       border: 1px solid #888;
-      height: $section_height - 2*$section_padding;
       position: relative;
       z-index: next-z-index();
+      display: inline-block;
+      width: 100%;
+      height: 100%;
     }
 
     .content {
       color: black;
-      height: calc(100% - 2 * #{$section_padding});
       left: 0;
       padding: $section_padding;
       position: absolute;
       text-align: left;
-      top: 0;
-      width: calc(100% - 2 * #{$section_padding});
+      height: 100%;
       z-index: next-z-index();
     }
 
-    img {
+    .background {
       filter: alpha(opacity=30); /* For IE8 and earlier */
-      height: 100%;
+      height: $section_height * .9;
+      margin-top: ($section_height * .1) / 2;
       max-height: 100%;
-      max-width: calc(100% - 10px);
+      max-width: 100%;
       object-fit: contain;
       opacity: 0.2;
+      vertical-align: middle;
     }
 
     .header {
       width: 100%;
       margin: 0;
       padding: 0 0 10px 0;
-      position: relative;
+      //position: relative;
       line-height: 20px;
       .company {
         margin: 0;
-        position: absolute;
+        //position: absolute;
         left: 0;
       }
       .title {
-        position: absolute;
+        //position: absolute;
         right: 0;
       }
     }
 
 
     .details {
-      font-size: 1vw;
+      font-size: 1.2em;
+      display: inline-block;
       ::v-deep ul {
         padding-left: $section_padding * 2;
       }
