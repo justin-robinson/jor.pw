@@ -57,9 +57,14 @@
     display: inline-block;
     position: relative;
     z-index: z(grid, details);
-    ::v-deep ul {
-      padding: 0 0 0 ($padding * 2);
-      margin: 0;
+    ::v-deep {
+      ul {
+        padding: 0 0 0 ($padding * 2);
+        margin: 0;
+      }
+      a {
+        color: $font-color;
+      }
     }
   }
 

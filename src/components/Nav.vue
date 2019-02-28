@@ -2,11 +2,21 @@
   <div id="nav">
     <nav class="nav">
       <span>Justin Robinson</span>
-      <div class="contact"><a class="link" href="mailto:jrob09bhs@gmail.com">jrob09bhs@gmail.com</a> | <a class="link" href="tel:18033209005">803.320.9005</a> | <a class="link" href="https://github.com/justin-robinson">github.com/justin-robinson</a></div>
+      <div class="contact">
+        <a class="link" href="mailto:jrob09bhs@gmail.com">jrob09bhs@gmail.com</a>
+        | <a class="link" href="tel:18033209005">803.320.9005</a>
+        | <a class="link" href="https://github.com/justin-robinson">github.com/justin-robinson</a>
+        | <a class="link" href="https://www.linkedin.com/in/justin-robinson-0734a665/">LinkedIn</a>
+      </div>
     </nav>
     <nav class="nav hidden">
       Justin Robinson
-      <div class="contact"><a class="link" href="mailto:jrob09bhs@gmail.com">jrob09bhs@gmail.com</a> | <a class="link" href="tel:18033209005">803.320.9005</a> | <a class="link" href="https://github.com/justin-robinson">github.com/justin-robinson</a></div>
+      <div class="contact">
+        <a class="link" href="mailto:jrob09bhs@gmail.com">jrob09bhs@gmail.com</a>
+        | <a class="link" href="tel:18033209005">803.320.9005</a>
+        | <a class="link" href="https://github.com/justin-robinson">github.com/justin-robinson</a>
+        | <a class="link" href="https://www.linkedin.com/in/justin-robinson-0734a665/">LinkedIn</a>
+      </div>
     </nav>
   </div>
 </template>
