@@ -13,6 +13,20 @@
       ]
     },
     {
+      "sortOrder": 2,
+      "sectionName": "Skills",
+      "data": [
+        {
+          "company": "Languages",
+          "detailsHTML": "Java, JavaScript, Golang, PHP, MySQL, C, node, bash, HTML, CSS"
+        },
+        {
+          "company": "Tools",
+          "detailsHTML": "git, Spring, Vue, Laravel, Red Hat/Centos Linux, OSX, IntelliJ, zshell, Sass"
+        }
+      ]
+    },
+    {
       "sortOrder": 0,
       "sectionName": "Experience",
       "data": [
