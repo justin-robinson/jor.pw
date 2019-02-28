@@ -13,11 +13,45 @@ $z-indexes: (
   nav: (),
 );
 
+@function max-index-depth($map, $current-depth:0) {
+  $max-depth: 0;
+
+  @each $_, $value in $map {
+    @if (type-of($value) == "map") {
+      $max-depth: max($max-depth, max-index-depth($value, $current-depth+1));
+    } @else {
+      $max-depth: max($max-depth, $current-depth+1);
+    }
+  }
+
+  @return $max-depth;
+}
+
+@function pow($number, $exponent) {
+  $value: 1;
+
+  @if $exponent > 0 {
+    @for $i from 1 through $exponent {
+      $value: $value * $number;
+    }
+  } @else if $exponent < 0 {
+    @for $i from 1 through -$exponent {
+      $value: $value / $number;
+    }
+  }
+
+  @return $value;
+}
+
+$max-depth: max-index-depth($z-indexes);
+
 @function z-index($keys) {
   $map: $z-indexes;
   $found-index: null;
+  $depth: 0;
 
   @each $key in $keys {
+    $depth: $depth + 1;
     @if (type-of($map) == "map") {
       $found-index: index(map-keys($map), $key);
       $map: map-get($map, $key);
@@ -26,7 +60,7 @@ $z-indexes: (
     }
   }
 
-  @return $found-index;
+  @return pow(10, $max-depth) + (pow(10, $max-depth - $depth) * $found-index);
 }
 
 @function z($keys...) {
