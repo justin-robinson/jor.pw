@@ -1,29 +1,19 @@
 <template>
   <div id="home">
-    <CardSection :name="resume.jobs.sectionName">
-      <Card v-for="job in resume.jobs.data" :key="job.imageName">
-        <Entry
-                :company="job.company"
-                :detailsHTML="job.detailsHTML"
-                :imageName="job.imageName"
-                :location="job.location"
-                :tenure="job.tenure"
-                :title="job.title"
-        />
-      </Card>
-    </CardSection>
-    <CardSection :name="resume.awards.sectionName">
-      <Card v-for="job in resume.awards.data" :key="job.imageName">
-        <Entry
-                :company="job.company"
-                :detailsHTML="job.detailsHTML"
-                :imageName="job.imageName"
-                :location="job.location"
-                :tenure="job.tenure"
-                :title="job.title"
-        />
-      </Card>
-    </CardSection>
+    <template v-for="entries in orderedEntries">
+      <CardSection :name="entries.sectionName">
+        <Card v-for="entry in entries.data" :key="entries.sortOrder">
+          <Entry
+                  :company="entry.company"
+                  :detailsHTML="entry.detailsHTML"
+                  :imageName="entry.imageName"
+                  :location="entry.location"
+                  :tenure="entry.tenure"
+                  :title="entry.title"
+          />
+        </Card>
+      </CardSection>
+    </template>
   </div>
 </template>
 
@@ -31,7 +21,7 @@
   import {Component, Vue} from 'vue-property-decorator';
   import Card from '@/components/Card.vue';
   import Entry from '@/components/resume/Entry.vue';
-  import CardSection from "@/components/CardSection.vue";
+  import CardSection from '@/components/CardSection.vue';
 
   @Component({
     components: {
@@ -42,14 +32,22 @@
   export default class Home extends Vue {
 
     private resume = {
-      jobs: {},
-      awards: [],
+      entries: [
+        {
+          sortOrder: 0,
+        },
+      ],
     };
 
     private mounted() {
       fetch('/api/resume.json')
         .then((response) => response.json())
         .then((resume) => this.resume = resume);
+    }
+
+    get orderedEntries() {
+      this.resume.entries.sort((entryA, entryB) => entryA.sortOrder - entryB.sortOrder );
+      return this.resume.entries;
     }
   }
 </script>
