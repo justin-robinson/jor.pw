@@ -1,27 +1,27 @@
 <template>
-  <div id="card">
+  <div id="card-section">
+    <h2 class="header">
+      {{ name }}
+    </h2>
     <slot></slot>
   </div>
 </template>
 
 <script lang="ts">
-  import {Component, Vue} from 'vue-property-decorator';
+  import {Component, Prop, Vue} from 'vue-property-decorator';
 
   @Component
-  export default class Card extends Vue {
+  export default class CardSection extends Vue {
+    @Prop() private name!: string;
   }
 </script>
 
 <style scoped lang="scss">
   @import "../scss/global";
-  $margin: 20px;
-  $padding: $margin;
 
-  #card {
-    position: relative;
-    background: $card-background-color;
-    margin: $margin;
-    padding: $padding;
+  .header {
+    background: $card-header-background-color;
+    color: $card-background-color;
     border-radius: 4px;
     -webkit-box-shadow: 2px 2px 14px 3px #999;
     -moz-box-shadow: 2px 2px 14px 3px #999;

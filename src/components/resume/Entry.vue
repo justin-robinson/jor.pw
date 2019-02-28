@@ -2,7 +2,7 @@
   <div class="content">
     <div class="header">
       <div class="header-left">
-        <h2 class="block company">{{ company }}</h2>
+        <h3 class="block company">{{ company }}</h3>
         <span class="block title">{{ title }}</span>
       </div>
       <div class="header-right">
