@@ -5,6 +5,10 @@
         Justin Robinson
         <div class="contact"><a class="link" href="mailto:jrob09bhs@gmail.com">jrob09bhs@gmail.com</a> | <a class="link" href="tel:18033209005">803.320.9005</a> | <a class="link" href="https://github.com/justin-robinson">github.com/justin-robinson</a></div>
       </nav>
+      <nav class="nav hidden">
+        Justin Robinson
+        <div class="contact"><a class="link" href="mailto:jrob09bhs@gmail.com">jrob09bhs@gmail.com</a> | <a class="link" href="tel:18033209005">803.320.9005</a> | <a class="link" href="https://github.com/justin-robinson">github.com/justin-robinson</a></div>
+      </nav>
     </div>
     <div class="grid">
       <div class="item">
@@ -46,8 +50,9 @@
   .nav {
     position: fixed;
     top: 0;
-    z-index: 100;
-    height: $nav-height;
+    z-index: z(nav);
+    min-height: $nav-height;
+    height: auto;
     width: 100%;
     font-size: 3em;
     background: #bbb;
@@ -59,8 +64,12 @@
     }
   }
 
+  .hidden {
+    position: unset;
+    visibility: hidden;
+  }
+
   .grid {
-    margin-top: $nav-height;
     display: grid;
     grid-template-columns: 1fr [resume] minmax(auto, $tablet-width) 1fr;
   }
