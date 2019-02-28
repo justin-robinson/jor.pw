@@ -4,12 +4,12 @@
       <CardSection :name="entries.sectionName">
         <Card v-for="entry in entries.data" :key="entries.sortOrder">
           <Entry
-                  :company="entry.company"
+                  :title="entry.title"
                   :detailsHTML="entry.detailsHTML"
                   :imageName="entry.imageName"
-                  :location="entry.location"
-                  :tenure="entry.tenure"
-                  :title="entry.title"
+                  :headerRightSubtitle="entry.headerRightSubtitle"
+                  :headerRightTitle="entry.headerRightTitle"
+                  :subtitle="entry.subtitle"
           />
         </Card>
       </CardSection>

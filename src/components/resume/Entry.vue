@@ -1,17 +1,17 @@
 <template>
   <div class="content">
-    <div class="header">
+    <div class="header" v-if="title">
       <div class="header-left">
-        <h3 class="block company">{{ company }}</h3>
-        <span class="block title">{{ title }}</span>
+        <h3 class="block title">{{ title }}</h3>
+        <span class="block subtitle">{{ subtitle }}</span>
       </div>
       <div class="header-right">
-        <span class="block">{{ tenure }}</span>
-        <span class="block">{{ location }}</span>
+        <span class="block">{{ headerRightTitle }}</span>
+        <span class="block">{{ headerRightSubtitle }}</span>
       </div>
     </div>
     <div class="details" v-html="detailsHTML"></div>
-    <img class="background" alt="company log" :src="getImgUrl(imageName)" v-bind:alt="imageName" v-if="imageName">
+    <img class="background" alt="title log" :src="getImgUrl(imageName)" v-bind:alt="imageName" v-if="imageName">
   </div>
 </template>
 
@@ -20,11 +20,11 @@
 
   @Component
   export default class Entry extends Vue {
-    @Prop() private company!: string;
     @Prop() private detailsHTML!: string;
     @Prop() private imageName!: string;
-    @Prop() private location!: string;
-    @Prop() private tenure!: string;
+    @Prop() private headerRightSubtitle!: string;
+    @Prop() private subtitle!: string;
+    @Prop() private headerRightTitle!: string;
     @Prop() private title!: string;
 
     private getImgUrl(imageName: string): string {
@@ -58,7 +58,7 @@
     .header-left {
       grid-column: left;
       text-align: left;
-      .company {
+      .title {
         margin: 0;
       }
     }
