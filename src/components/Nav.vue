@@ -1,32 +1,47 @@
 <template>
   <div id="nav">
-    <nav class="nav">
-      <span>Justin Robinson</span>
-      <div class="contact">
-        <a class="link" href="mailto:jrob09bhs@gmail.com">jrob09bhs@gmail.com</a>
-        | <a class="link" href="tel:18033209005">803.320.9005</a>
-        | <a class="link" href="https://github.com/justin-robinson">github.com/justin-robinson</a>
-        | <a class="link" href="https://www.linkedin.com/in/justin-robinson-0734a665/">LinkedIn</a>
-      </div>
-    </nav>
-    <nav class="nav hidden">
-      Justin Robinson
-      <div class="contact">
-        <a class="link" href="mailto:jrob09bhs@gmail.com">jrob09bhs@gmail.com</a>
-        | <a class="link" href="tel:18033209005">803.320.9005</a>
-        | <a class="link" href="https://github.com/justin-robinson">github.com/justin-robinson</a>
-        | <a class="link" href="https://www.linkedin.com/in/justin-robinson-0734a665/">LinkedIn</a>
-      </div>
-    </nav>
+    <template v-for="i in 2">
+      <nav v-bind:class="{ nav: true, hidden: i === 2}">
+        <span>{{ fullName }}</span>
+        <div class="contact">
+          <template v-for="(link, index) in links">
+            <a class="link" v-bind:href="link.href">{{ link.text }}</a>
+            <span v-if="index !== lastLinkIndex"> | </span>
+          </template>
+        </div>
+      </nav>
+    </template>
   </div>
 </template>
 
 <script lang="ts">
   import {Component, Vue} from 'vue-property-decorator';
-  import Card from './Card.vue';
 
   @Component
   export default class Nav extends Vue {
+    private fullName = 'Justin Robinson';
+    private links = [
+      {
+        href: 'mailto:jrob09bhs@gmail.com',
+        text: 'jrob09bhs@gmail.com',
+      },
+      {
+        href: 'tel:18033209005',
+        text: '803.320.9005',
+      },
+      {
+        href: 'https://github.com/justin-robinson',
+        text: 'github.com/justin-robinson',
+      },
+      {
+        href: 'https://www.linkedin.com/in/justin-robinson-0734a665/',
+        text: 'LinkedIn',
+      },
+    ];
+
+    get lastLinkIndex() {
+      return Object.keys(this.links).length - 1;
+    }
   }
 </script>
 
@@ -43,8 +58,10 @@
     font-size: 3em;
     background: #bbb;
     padding: 0 0 10px 0;
+
     .contact {
       font-size: initial;
+
       .link {
         color: $font-color;
       }
