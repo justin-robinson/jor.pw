@@ -30,13 +30,18 @@
 
 <style scoped lang="scss">
   @import "../scss/global.scss";
-  $section_padding: 10px;
+  $between_sections_padding: 20px;
+  $inner_section_padding: 10px;
 
   .section {
     position: relative;
     background: #ddd;
-    margin: $section_padding;
-    padding: $section_padding;
+    margin: $between_sections_padding;
+    padding: $between_sections_padding;
+    border-radius: 4px;
+    -webkit-box-shadow: 2px 2px 14px 3px #999;
+    -moz-box-shadow: 2px 2px 14px 3px #999;
+    box-shadow: 2px 2px 14px 3px #999;
 
     .content {
       color: black;
@@ -66,22 +71,22 @@
       position: relative;
       z-index: z(grid, details);
       ::v-deep ul {
-        padding: 0 0 0 ($section_padding * 2);
+        padding: 0 0 0 ($inner_section_padding * 2);
         margin: 0;
       }
     }
 
     .background {
-      height: calc(100% - #{$section_padding * 2});
+      height: calc(100% - #{$inner_section_padding * 2});
       left: 0;
-      margin: $section_padding;
+      margin: $inner_section_padding;
       object-fit: contain;
       opacity: .2;
       filter: alpha(opacity=20); /* For IE8 and earlier */
       position: absolute;
       top: 0;
       vertical-align: middle;
-      width: calc(100% - #{$section_padding * 2});
+      width: calc(100% - #{$inner_section_padding * 2});
       z-index: z(grid, background);
     }
   }
