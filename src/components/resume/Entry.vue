@@ -19,7 +19,7 @@
   import {Component, Prop, Vue} from 'vue-property-decorator';
 
   @Component
-  export default class Job extends Vue {
+  export default class Entry extends Vue {
     @Prop() private company!: string;
     @Prop() private detailsHTML!: string;
     @Prop() private imageName!: string;
@@ -28,7 +28,7 @@
     @Prop() private title!: string;
 
     private getImgUrl(pic: string): string {
-      return require('@/assets/' + pic);
+      return pic ? require(`@/assets/${pic}`) : '';
     }
 
   }

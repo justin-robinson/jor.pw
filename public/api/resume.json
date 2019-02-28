@@ -1,4 +1,12 @@
 {
+  "awards": [
+    {
+      "company": "Queen City Hackathon 1st Place",
+      "detailsHTML": "<span>24 hour hackathon with over 200 individual participants and $10k prize for 1st place. Submitted a prototype machine learning model to help users estimate healthcare costs prior to visit using crowdsourced healthcare data</span><div><a href=\"https://abdsociety.org/queen-city-hackathon\">Details</a> <a href=\"https://github.com/justin-robinson/clthackathon2017 \">Source Code</a></div>",
+      "imageName": "queen-city-hackathon.png",
+      "tenure": "2017"
+    }
+  ],
   "jobs": [
     {
       "company": "Amazon.com",
@@ -34,7 +42,7 @@
     },
     {
       "company": "Scientific Research Corporation",
-      "detailsHTML": "<ul><li>Designed and developed OO Java applications</li><ul><li>Full UI design</li><li>Full backend design</li></ul>\n<li>Improved existing Ruby on Rails applications</li><ul><li>Revamped web UI</li><li>Improved and added to functionality</li></ul><li>Developed methods for mass hardware security deployment</li><li>Worked in tandem with Scrum team to identify security and functionality bugs</li></ul>",
+      "detailsHTML": "<ul><li>Designed and developed OO Java applications</li><ul><li>Full UI design</li><li>Full backend design</li></ul><li>Improved existing Ruby on Rails applications</li><ul><li>Revamped web UI</li><li>Improved and added to functionality</li></ul><li>Developed methods for mass hardware security deployment</li><li>Worked in tandem with Scrum team to identify security and functionality bugs</li></ul>",
       "imageName": "src.png",
       "location": "Charleston, SC",
       "tenure": "Sept 2013 - April 2014",
