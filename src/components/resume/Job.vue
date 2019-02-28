@@ -19,7 +19,7 @@
     @Prop() private title!: string;
     @Prop() private company!: string;
 
-    public getImgUrl(pic: string): string {
+    private getImgUrl(pic: string): string {
       return require('@/assets/' + pic);
     }
 

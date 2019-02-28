@@ -21,9 +21,9 @@
   })
   export default class Home extends Vue {
 
-    public jobs = [];
+    private jobs = [];
 
-    public mounted() {
+    private mounted() {
       fetch('/api/jobs.json')
         .then((response) => response.json())
         .then((jobs) => this.jobs = jobs);

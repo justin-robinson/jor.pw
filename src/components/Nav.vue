@@ -19,7 +19,7 @@
 
   @Component
   export default class Nav extends Vue {
-    public nav = {
+    private nav = {
       fullName: '',
       links: [],
     };
@@ -28,7 +28,7 @@
       return Object.keys(this.nav.links).length - 1;
     }
 
-    public mounted() {
+    private mounted() {
       fetch('/api/nav.json')
         .then((response) => response.json())
         .then((nav) => this.nav = nav);
