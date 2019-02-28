@@ -1,6 +1,6 @@
 <template>
   <div id="home">
-    <Card v-for="job in jobs" :key="job.imageName">
+    <Card v-for="job in resume.jobs" :key="job.imageName">
       <Job
            :company="job.company"
            :detailsHTML="job.detailsHTML"
@@ -25,12 +25,14 @@
   })
   export default class Home extends Vue {
 
-    private jobs = [];
+    private resume = {
+      jobs: [],
+    };
 
     private mounted() {
-      fetch('/api/jobs.json')
+      fetch('/api/resume.json')
         .then((response) => response.json())
-        .then((jobs) => this.jobs = jobs);
+        .then((resume) => this.resume = resume);
     }
   }
 </script>

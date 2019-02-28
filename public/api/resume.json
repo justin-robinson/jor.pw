@@ -1,0 +1,60 @@
+{
+  "jobs": [
+    {
+      "company": "Amazon.com",
+      "detailsHTML": "<ul><li>Independently discovered and drove solution to multi-billion dollar company wide bug</li><li>Pioneered Amazon full-time remote employee program after working in Seattle for one year</li><li>Collaborated with partner team in India to deliver customer centric Ship-to-Store shopping experiences</li><li>Independently discovered and solved technical internationalization hurdles that had plagued Amazon for 20 years</li><li>Orchestrated decoupling of local US client team code bases and deployment processes from remote India based teams</li><li>Mentored intern on an ambiguous project where he had little experience. Led him to a successful project execution plan and job offer from Amazon </li></ul>",
+      "imageName": "amazon.png",
+      "location": "Seattle, WA - Remote in Lancaster, SC since Sept 2017",
+      "tenure": "Oct 2016 - Present",
+      "title": "Software Development Engineer"
+    },
+    {
+      "company": "American City Business Journals",
+      "detailsHTML": "<ul><li>Increased performance, reliability, maintainability, and iteration speed by migrating internal code bases to my self built <a href=\"https://github.com/justin-robinson/scoop\">PHP Scoop ORM</a></li><li>Rearchitected internal data platform to easily handle incremental changes</li><li>Built Restful Hypermedia HAL api for data platform</li><li>Optimized speed of offline data import and export processes by a factor of 100</li><li>Built Newsleads backbone.js app to monetize contacts from our in-house data platform</li><li>Built web apps using Zend PHP Framework</li><li>Built <a href=\"https://github.com/justin-robinson/reposync\">concurrent code syncing tool using Golang</a></li></ul>",
+      "imageName": "acbj.png",
+      "location": "Charlotte, NC",
+      "tenure": "Jan 2016 - Oct 2016",
+      "title": "Software Engineer"
+    },
+    {
+      "company": "Crowell Systems",
+      "detailsHTML": "<ul><li>Optimized and fixed PHP web portal for medical patients</li><li>Redesigned in house networking and computing infrastructure</li><li>Established code versioning with git</li><li>Increased patient usage of web portal</li></ul>",
+      "imageName": "crowell.png",
+      "location": "Charlotte, NC",
+      "tenure": "Oct 2015 - Jan 2016",
+      "title": "Programmer"
+    },
+    {
+      "company": "Red Ventures",
+      "detailsHTML": "<ul><li>Designed and developed web applications using PHP, MySQL, JavaScript, node, and Redis</li><li>Designed and built survey system with over 30,000 questions answered</li><li>Redesigned and coordinated launch of high traffic websites</li><li>Tracked customer experience with multiple JavaScript libraries for added insight</li><li>Collaborated with business analyst to deliver best possible experience to customers</li><li>Served as mentor to high school students</li></ul>",
+      "imageName": "rv.png",
+      "location": "Fort Mill, SC",
+      "tenure": "Aug 2014 - July 2015",
+      "title": "Software Engineer"
+    },
+    {
+      "company": "Scientific Research Corporation",
+      "detailsHTML": "<ul><li>Designed and developed OO Java applications</li><ul><li>Full UI design</li><li>Full backend design</li></ul>\n<li>Improved existing Ruby on Rails applications</li><ul><li>Revamped web UI</li><li>Improved and added to functionality</li></ul><li>Developed methods for mass hardware security deployment</li><li>Worked in tandem with Scrum team to identify security and functionality bugs</li></ul>",
+      "imageName": "src.png",
+      "location": "Charleston, SC",
+      "tenure": "Sept 2013 - April 2014",
+      "title": "Engineer I"
+    },
+    {
+      "company": "Lifecycle Engineering",
+      "detailsHTML": "<ul><li>Installed and configured a virtualized network infrastructure using VMware ESX 5i</li><li>Installed and configured a firewall to separate the virtual infrastructure with the physical network infrastructure.</li><li>Installed and configured Windows and Linux virtual machines Developed with Groovy & Grails</li></ul>",
+      "imageName": "lce.png",
+      "location": "Charleston, SC",
+      "tenure": "June 2013 - Sept 2013",
+      "title": "Engineering Intern"
+    },
+    {
+      "company": "JRob Computers",
+      "detailsHTML": "<ul><li>Server setup and maintenance (Ubuntu Server 9.04-11.04/ Windows Server 20082012/Centos 6-7)</li><li>Design domain with HTTP, SMTP, IMAP, POP3, RPD, PHP, Perl, SFTP</li><li>Troubleshoot and correct laptops, desktops, networks, mobile devices, and electronics Design/Build custom computers</li><li>Hardware Diagnostics (Test & replace faulty parts: RAM, CPU, capacitors, HDD, etc.)</li></ul>",
+      "imageName": "jrobcomputers.png",
+      "location": "Lancaster, SC",
+      "tenure": "2009 - Present",
+      "title": "Owner"
+    }
+  ]
+}
