@@ -11,12 +11,12 @@
 
 <script lang="ts">
   import {Component, Vue} from 'vue-property-decorator';
-  import Home from './components/Home.vue';
-  import Nav from './components/Nav.vue';
+  import Home from '@/components/Home.vue';
+  import Nav from '@/components/Nav.vue';
 
   @Component({
     components: {
-      Home, Nav
+      Home, Nav,
     },
   })
   export default class App extends Vue {

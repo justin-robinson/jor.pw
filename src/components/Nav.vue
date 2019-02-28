@@ -13,7 +13,7 @@
 
 <script lang="ts">
   import {Component, Vue} from 'vue-property-decorator';
-  import ContentSquare from './ContentSquare.vue';
+  import Card from './Card.vue';
 
   @Component
   export default class Nav extends Vue {

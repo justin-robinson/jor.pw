@@ -1,22 +1,22 @@
 <template>
   <div id="home">
-    <ContentSquare
-            v-for="square in squares"
-            :key="square.backgroundImageUrl"
-            :backgroundImageUrl="square.backgroundImageUrl"
-            :detailsHTML="square.detailsHTML"
-            :title="square.title"
-            :company="square.company"/>
+    <Card v-for="square in squares" :key="square.backgroundImageUrl">
+      <Job ref="content" :backgroundImageUrl="square.backgroundImageUrl"
+               :detailsHTML="square.detailsHTML"
+               :title="square.title"
+               :company="square.company"/>
+    </Card>
   </div>
 </template>
 
 <script lang="ts">
   import {Component, Vue} from 'vue-property-decorator';
-  import ContentSquare from './ContentSquare.vue';
+  import Card from '@/components/Card.vue';
+  import Job from '@/components/resume/Job.vue';
 
   @Component({
     components: {
-      ContentSquare,
+      Card, Job,
     },
   })
   export default class Home extends Vue {
@@ -30,8 +30,3 @@
     }
   }
 </script>
-
-<style lang="scss">
-
-
-</style>
