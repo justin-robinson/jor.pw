@@ -1,15 +1,6 @@
 <template>
   <div id="app">
-    <div>
-      <nav class="nav">
-        Justin Robinson
-        <div class="contact"><a class="link" href="mailto:jrob09bhs@gmail.com">jrob09bhs@gmail.com</a> | <a class="link" href="tel:18033209005">803.320.9005</a> | <a class="link" href="https://github.com/justin-robinson">github.com/justin-robinson</a></div>
-      </nav>
-      <nav class="nav hidden">
-        Justin Robinson
-        <div class="contact"><a class="link" href="mailto:jrob09bhs@gmail.com">jrob09bhs@gmail.com</a> | <a class="link" href="tel:18033209005">803.320.9005</a> | <a class="link" href="https://github.com/justin-robinson">github.com/justin-robinson</a></div>
-      </nav>
-    </div>
+    <Nav/>
     <div class="grid">
       <div class="item">
         <Home/>
@@ -21,10 +12,11 @@
 <script lang="ts">
   import {Component, Vue} from 'vue-property-decorator';
   import Home from './components/Home.vue';
+  import Nav from './components/Nav.vue';
 
   @Component({
     components: {
-      Home,
+      Home, Nav
     },
   })
   export default class App extends Vue {
@@ -45,28 +37,6 @@
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
     color: $font-color;
-  }
-
-  .nav {
-    position: fixed;
-    top: 0;
-    z-index: z(nav);
-    min-height: $nav-height;
-    height: auto;
-    width: 100%;
-    font-size: 3em;
-    background: #bbb;
-    .contact {
-      font-size: initial;
-      .link {
-        color: $font-color;
-      }
-    }
-  }
-
-  .hidden {
-    position: unset;
-    visibility: hidden;
   }
 
   .grid {
