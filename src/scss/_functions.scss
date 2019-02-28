@@ -1,18 +1,3 @@
-$font-color: #2c3e50;
-$nav-height: 90px;
-$tablet-width: 768px;
-$phone: "only screen and (max-width : 600px)";
-$tablet: "only screen and (max-width : #{$tablet-width})";
-
-$z-indexes: (
-  grid: (
-    background:(),
-    details:(),
-    header:(),
-  ),
-  nav: (),
-);
-
 @function max-index-depth($map, $current-depth:0) {
   $max-depth: 0;
 
@@ -43,8 +28,8 @@ $z-indexes: (
   @return $value;
 }
 
-$max-depth: max-index-depth($z-indexes);
 
+$max-z-index-map-depth: max-index-depth($z-indexes);
 @function z-index($keys) {
   $map: $z-indexes;
   $found-index: null;
@@ -60,13 +45,9 @@ $max-depth: max-index-depth($z-indexes);
     }
   }
 
-  @return pow(10, $max-depth) + (pow(10, $max-depth - $depth) * $found-index);
+  @return pow(10, $max-z-index-map-depth) + (pow(10, $max-z-index-map-depth - $depth) * $found-index);
 }
 
 @function z($keys...) {
   @return z-index($keys);
-}
-
-.block {
-  display: block;
 }

@@ -24,7 +24,7 @@
 </script>
 
 <style lang="scss">
-  @import "./scss/global.scss";
+  @import "scss/global";
 
   body {
     margin: 0;

@@ -37,13 +37,13 @@
 </script>
 
 <style scoped lang="scss">
-  @import "../scss/global.scss";
+  @import "../scss/global";
 
   .nav {
     position: fixed;
     top: 0;
     z-index: z(nav);
-    min-height: $nav-height;
+    min-height: $nav-min-height;
     height: auto;
     width: 100%;
     font-size: 3em;

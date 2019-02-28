@@ -35,7 +35,7 @@
 </script>
 
 <style scoped lang="scss">
-  @import "../../scss/global.scss";
+  @import "../../scss/global";
 
   $padding: 10px;
 

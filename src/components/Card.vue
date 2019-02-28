@@ -13,7 +13,7 @@
 </script>
 
 <style scoped lang="scss">
-  @import "../scss/global.scss";
+  @import "../scss/global";
   $margin: 20px;
   $padding: $margin;
 
