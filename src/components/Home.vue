@@ -1,10 +1,10 @@
 <template>
   <div id="home">
-    <Card v-for="square in squares" :key="square.backgroundImageUrl">
-      <Job ref="content" :backgroundImageUrl="square.backgroundImageUrl"
-               :detailsHTML="square.detailsHTML"
-               :title="square.title"
-               :company="square.company"/>
+    <Card v-for="job in jobs" :key="job.imageName">
+      <Job ref="content" :imageName="job.imageName"
+               :detailsHTML="job.detailsHTML"
+               :title="job.title"
+               :company="job.company"/>
     </Card>
   </div>
 </template>
@@ -21,12 +21,12 @@
   })
   export default class Home extends Vue {
 
-    public squares = [];
+    public jobs = [];
 
     public mounted() {
-      fetch('/api/squares.json')
+      fetch('/api/jobs.json')
         .then((response) => response.json())
-        .then((squares) => this.squares = squares);
+        .then((jobs) => this.jobs = jobs);
     }
   }
 </script>

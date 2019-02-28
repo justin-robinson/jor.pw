@@ -5,7 +5,7 @@
       <span class="title">{{ title }}</span>
     </div>
     <div class="details" v-html="detailsHTML"></div>
-    <img class="background" alt="company log" :src="getImgUrl(backgroundImageUrl)" v-bind:alt="backgroundImageUrl">
+    <img class="background" alt="company log" :src="getImgUrl(imageName)" v-bind:alt="imageName">
   </div>
 </template>
 
@@ -14,7 +14,7 @@
 
   @Component
   export default class Job extends Vue {
-    @Prop() private backgroundImageUrl!: string;
+    @Prop() private imageName!: string;
     @Prop() private detailsHTML!: string;
     @Prop() private title!: string;
     @Prop() private company!: string;
