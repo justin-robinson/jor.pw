@@ -1,0 +1,34 @@
+$font-color: #2c3e50;
+$nav-height: 90px;
+$tablet-width: 768px;
+$phone: "only screen and (max-width : 600px)";
+$tablet: "only screen and (max-width : #{$tablet-width})";
+
+$z-indexes: (
+  grid: (
+    background:(),
+    details:(),
+    header:(),
+  ),
+  nav: (),
+);
+
+@function z-index($keys) {
+  $map: $z-indexes;
+  $found-index: null;
+
+  @each $key in $keys {
+    @if (type-of($map) == "map") {
+      $found-index: index(map-keys($map), $key);
+      $map: map-get($map, $key);
+    } @else {
+      $found-index: index($map, $key);
+    }
+  }
+
+  @return $found-index;
+}
+
+@function z($keys...) {
+  @return z-index($keys);
+}
