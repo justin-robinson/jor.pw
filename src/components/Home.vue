@@ -1,10 +1,14 @@
 <template>
   <div id="home">
     <Card v-for="job in jobs" :key="job.imageName">
-      <Job ref="content" :imageName="job.imageName"
-               :detailsHTML="job.detailsHTML"
-               :title="job.title"
-               :company="job.company"/>
+      <Job
+           :company="job.company"
+           :detailsHTML="job.detailsHTML"
+           :imageName="job.imageName"
+           :location="job.location"
+           :tenure="job.tenure"
+           :title="job.title"
+      />
     </Card>
   </div>
 </template>

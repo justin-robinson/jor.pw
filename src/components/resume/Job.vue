@@ -1,8 +1,14 @@
 <template>
   <div class="content">
     <div class="header">
-      <h2 class="company">{{ company }}</h2>
-      <span class="title">{{ title }}</span>
+      <div class="header-left">
+        <h2 class="block company">{{ company }}</h2>
+        <span class="block title">{{ title }}</span>
+      </div>
+      <div class="header-right">
+        <span class="block">{{ tenure }}</span>
+        <span class="block">{{ location }}</span>
+      </div>
     </div>
     <div class="details" v-html="detailsHTML"></div>
     <img class="background" alt="company log" :src="getImgUrl(imageName)" v-bind:alt="imageName">
@@ -14,10 +20,12 @@
 
   @Component
   export default class Job extends Vue {
-    @Prop() private imageName!: string;
-    @Prop() private detailsHTML!: string;
-    @Prop() private title!: string;
     @Prop() private company!: string;
+    @Prop() private detailsHTML!: string;
+    @Prop() private imageName!: string;
+    @Prop() private location!: string;
+    @Prop() private tenure!: string;
+    @Prop() private title!: string;
 
     private getImgUrl(pic: string): string {
       return require('@/assets/' + pic);
@@ -28,6 +36,7 @@
 
 <style scoped lang="scss">
   @import "../../scss/global.scss";
+
   $padding: 10px;
 
   .content {
@@ -38,17 +47,26 @@
   }
 
   .header {
+    display: grid;
+    grid-template-columns: [left] auto [right] auto;
     width: 100%;
     margin: 0;
     padding: 0 0 10px 0;
     line-height: 20px;
     z-index: z(grid, header);
-    .company {
-      margin: 0;
-      left: 0;
+
+    .header-left {
+      grid-column: left;
+      text-align: left;
+      .company {
+        margin: 0;
+      }
     }
-    .title {
-      right: 0;
+
+    .header-right {
+      font-size: .8em;
+      grid-column: right;
+      text-align: right;
     }
   }
 
@@ -57,11 +75,13 @@
     display: inline-block;
     position: relative;
     z-index: z(grid, details);
+
     ::v-deep {
       ul {
         padding: 0 0 0 ($padding * 2);
         margin: 0;
       }
+
       a {
         color: $font-color;
       }

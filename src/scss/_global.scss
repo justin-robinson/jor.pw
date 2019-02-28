@@ -66,3 +66,7 @@ $max-depth: max-index-depth($z-indexes);
 @function z($keys...) {
   @return z-index($keys);
 }
+
+.block {
+  display: block;
+}
