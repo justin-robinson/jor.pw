@@ -1,7 +1,7 @@
 {
   "entries": [
     {
-      "sortOrder": -1,
+      "sortOrder": 0,
       "sectionName": "Summary",
       "data": [
         {
@@ -10,7 +10,7 @@
       ]
     },
     {
-      "sortOrder": 1,
+      "sortOrder": 2,
       "sectionName": "Awards",
       "data": [
         {
@@ -22,7 +22,7 @@
       ]
     },
     {
-      "sortOrder": 2,
+      "sortOrder": 3,
       "sectionName": "Skills",
       "data": [
         {
@@ -36,7 +36,7 @@
       ]
     },
     {
-      "sortOrder": 0,
+      "sortOrder": 1,
       "sectionName": "Experience",
       "data": [
         {

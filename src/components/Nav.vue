@@ -20,11 +20,16 @@
   export default class Nav extends Vue {
     private nav = {
       fullName: '',
+      headshotImageName: '',
       links: [],
     };
 
     private headshotImageUrl(imageName: string) {
-      return require(`@/assets/${imageName}`);
+      try {
+        return require(`@/assets/${imageName}`);
+      } catch (e) {
+        return '';
+      }
     }
 
     get lastLinkIndex() {

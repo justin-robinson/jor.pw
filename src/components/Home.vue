@@ -1,15 +1,15 @@
 <template>
   <div id="home">
-    <template v-for="entries in orderedEntries">
-      <CardSection :name="entries.sectionName">
-        <Card v-for="entry in entries.data" :key="entries.sortOrder">
+    <template v-for="(entry, i) in orderedEntries">
+      <CardSection :name="entry.sectionName" :key="entry.sortOrder + '.0.' + i">
+        <Card v-for="(entryData, index) in entry.data" :key="entry.sortOrder + '.1.' + index">
           <Entry
-                  :title="entry.title"
-                  :detailsHTML="entry.detailsHTML"
-                  :imageName="entry.imageName"
-                  :headerRightSubtitle="entry.headerRightSubtitle"
-                  :headerRightTitle="entry.headerRightTitle"
-                  :subtitle="entry.subtitle"
+                  :title="entryData.title"
+                  :detailsHTML="entryData.detailsHTML"
+                  :imageName="entryData.imageName"
+                  :headerRightSubtitle="entryData.headerRightSubtitle"
+                  :headerRightTitle="entryData.headerRightTitle"
+                  :subtitle="entryData.subtitle"
           />
         </Card>
       </CardSection>
@@ -35,6 +35,7 @@
       entries: [
         {
           sortOrder: 0,
+          sectionName: '',
         },
       ],
     };
