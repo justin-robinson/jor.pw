@@ -1,16 +1,15 @@
 <template>
   <div id="nav">
-    <template v-for="i in 2">
-      <nav v-bind:class="{ nav: true, hidden: i === 2}">
-        <h1 class="full-name">{{ nav.fullName }}</h1>
-        <div class="contact">
-          <template v-for="(link, index) in nav.links">
-            <a class="link" v-bind:href="link.href">{{ link.text }}</a>
-            <span v-if="index !== lastLinkIndex"> | </span>
-          </template>
-        </div>
-      </nav>
-    </template>
+    <nav class="nav">
+      <img class="headshot" :src="headshotImageUrl(nav.headshotImageName)" alt="headshot">
+      <h1 class="full-name">{{ nav.fullName }}</h1>
+      <div class="contact">
+        <template v-for="(link, index) in nav.links">
+          <a class="link" v-bind:href="link.href">{{ link.text }}</a>
+          <span v-if="index !== lastLinkIndex"> | </span>
+        </template>
+      </div>
+    </nav>
   </div>
 </template>
 
@@ -23,6 +22,10 @@
       fullName: '',
       links: [],
     };
+
+    private headshotImageUrl(imageName: string) {
+      return require(`@/assets/${imageName}`);
+    }
 
     get lastLinkIndex() {
       return Object.keys(this.nav.links).length - 1;
@@ -39,15 +42,24 @@
 <style scoped lang="scss">
   @import "../scss/global";
 
+  $nav-padding: 10px;
+  $headshot-image-size: $nav-height - $nav-padding*2;
+
   .nav {
     position: fixed;
     top: 0;
     z-index: z(nav);
-    min-height: $nav-min-height;
-    height: auto;
+    height: $nav-height;
     width: 100%;
     background: #bbb;
-    padding: 0 0 10px 0;
+
+    .headshot {
+      position: absolute;
+      left: $nav-padding;
+      top: $nav-padding;
+      height: $headshot-image-size;
+      border-radius: $headshot-image-size/2;
+    }
 
     .full-name {
       font-size: 3em;

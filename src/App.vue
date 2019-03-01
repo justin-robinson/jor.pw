@@ -42,6 +42,7 @@
   .grid {
     display: grid;
     grid-template-columns: 1fr [resume] minmax(auto, $tablet-width) 1fr;
+    margin-top: $nav-height;
   }
 
   .item {

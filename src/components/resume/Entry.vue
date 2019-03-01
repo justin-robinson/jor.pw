@@ -11,7 +11,7 @@
       </div>
     </div>
     <div class="details" v-html="detailsHTML"></div>
-    <img class="background" alt="title log" :src="getImgUrl(imageName)" v-bind:alt="imageName" v-if="imageName">
+    <img class="background" alt="company logo" :src="getImgUrl(imageName)" v-bind:alt="imageName" v-if="imageName">
   </div>
 </template>
 
