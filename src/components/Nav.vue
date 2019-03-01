@@ -2,7 +2,7 @@
   <div id="nav">
     <template v-for="i in 2">
       <nav v-bind:class="{ nav: true, hidden: i === 2}">
-        <span>{{ nav.fullName }}</span>
+        <h1 class="full-name">{{ nav.fullName }}</h1>
         <div class="contact">
           <template v-for="(link, index) in nav.links">
             <a class="link" v-bind:href="link.href">{{ link.text }}</a>
@@ -46,9 +46,14 @@
     min-height: $nav-min-height;
     height: auto;
     width: 100%;
-    font-size: 3em;
     background: #bbb;
     padding: 0 0 10px 0;
+
+    .full-name {
+      font-size: 3em;
+      font-weight: normal;
+      margin: 0;
+    }
 
     .contact {
       font-size: initial;
