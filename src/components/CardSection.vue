@@ -26,6 +26,8 @@
     -webkit-box-shadow: 2px 2px 14px 3px #999;
     -moz-box-shadow: 2px 2px 14px 3px #999;
     box-shadow: 2px 2px 14px 3px #999;
+    font-size: 1.5em;
+    margin: .83em $card-margin/2 .83em $card-margin/2;
   }
 
 </style>

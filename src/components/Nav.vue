@@ -44,6 +44,7 @@
 
   $nav-padding: 10px;
   $headshot-image-size: $nav-height - $nav-padding*2;
+  $headshot-image-size-phone: $nav-height-phone - $nav-padding*2;
 
   .nav {
     position: fixed;
@@ -52,6 +53,9 @@
     height: $nav-height;
     width: 100%;
     background: #bbb;
+    @media #{$phone} {
+      height: $nav-height-phone;
+    }
 
     .headshot {
       position: absolute;
@@ -59,12 +63,20 @@
       top: $nav-padding;
       height: $headshot-image-size;
       border-radius: $headshot-image-size/2;
+      @media #{$phone} {
+        height: $headshot-image-size-phone;
+        border-radius: $headshot-image-size-phone/2;
+      }
     }
 
     .full-name {
       font-size: 3em;
       font-weight: normal;
       margin: 0;
+      @media #{$phone} {
+        font-size: $nav-height-phone - $nav-padding;
+        vertical-align: center;
+      }
     }
 
     .contact {
@@ -72,6 +84,10 @@
 
       .link {
         color: $font-color;
+      }
+
+      @media #{$phone} {
+        display: none;
       }
     }
   }
