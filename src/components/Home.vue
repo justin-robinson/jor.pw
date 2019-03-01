@@ -1,8 +1,8 @@
 <template>
   <div id="home">
     <template v-for="(entry, i) in orderedEntries">
-      <CardSection :name="entry.sectionName" :key="entry.sortOrder + '.0.' + i">
-        <Card v-for="(entryData, index) in entry.data" :key="entry.sortOrder + '.1.' + index">
+      <CardSection :name="entry.sectionName" :key="entry.sortOrder">
+        <Card v-for="(entryData, index) in entry.data" :key="entry.sortOrder + '.' + index">
           <Entry
                   :title="entryData.title"
                   :detailsHTML="entryData.detailsHTML"

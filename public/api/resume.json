@@ -1,7 +1,7 @@
 {
   "entries": [
     {
-      "sortOrder": 0,
+      "sortOrder": 1,
       "sectionName": "Summary",
       "data": [
         {
@@ -11,32 +11,6 @@
     },
     {
       "sortOrder": 2,
-      "sectionName": "Awards",
-      "data": [
-        {
-          "title": "Queen City Hackathon 1st Place",
-          "detailsHTML": "<span>24 hour hackathon with over 200 individual participants and $10k prize for 1st place. Submitted a prototype machine learning model to help users estimate healthcare costs prior to visit using crowdsourced healthcare data</span><div><a href=\"https://abdsociety.org/queen-city-hackathon\">Details</a> <a href=\"https://github.com/justin-robinson/clthackathon2017 \">Source Code</a></div>",
-          "imageName": "queen-city-hackathon.png",
-          "headerRightTitle": "2017"
-        }
-      ]
-    },
-    {
-      "sortOrder": 3,
-      "sectionName": "Skills",
-      "data": [
-        {
-          "title": "Languages",
-          "detailsHTML": "Java, JavaScript, Golang, PHP, MySQL, C, node, bash, HTML, CSS"
-        },
-        {
-          "title": "Tools",
-          "detailsHTML": "git, Spring, Vue, Laravel, Red Hat/Centos Linux, OSX, IntelliJ, zshell, Sass"
-        }
-      ]
-    },
-    {
-      "sortOrder": 1,
       "sectionName": "Experience",
       "data": [
         {
@@ -94,6 +68,32 @@
           "headerRightSubtitle": "Lancaster, SC",
           "headerRightTitle": "2009 - Present",
           "subtitle": "Owner"
+        }
+      ]
+    },
+    {
+      "sortOrder": 3,
+      "sectionName": "Awards",
+      "data": [
+        {
+          "title": "Queen City Hackathon 1st Place",
+          "detailsHTML": "<span>24 hour hackathon with over 200 individual participants and $10k prize for 1st place. Submitted a prototype machine learning model to help users estimate healthcare costs prior to visit using crowdsourced healthcare data</span><div><a href=\"https://abdsociety.org/queen-city-hackathon\">Details</a> <a href=\"https://github.com/justin-robinson/clthackathon2017 \">Source Code</a></div>",
+          "imageName": "queen-city-hackathon.png",
+          "headerRightTitle": "2017"
+        }
+      ]
+    },
+    {
+      "sortOrder": 4,
+      "sectionName": "Skills",
+      "data": [
+        {
+          "title": "Languages",
+          "detailsHTML": "Java, JavaScript, Golang, PHP, MySQL, C, node, bash, HTML, CSS"
+        },
+        {
+          "title": "Tools",
+          "detailsHTML": "git, Spring, Vue, Laravel, Red Hat/Centos Linux, OSX, IntelliJ, zshell, Sass"
         }
       ]
     }
