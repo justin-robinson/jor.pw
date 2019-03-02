@@ -28,7 +28,7 @@
 
   body {
     margin: 0;
-    background-color: #eee;
+    background-color: #ddd;
   }
 
   #app {

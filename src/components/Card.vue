@@ -14,7 +14,7 @@
 
 <style scoped lang="scss">
   @import "../scss/global";
-  $background-color: #ddd;
+  $background-color: #eee;
   $side-margin: 20px;
   $padding: $side-margin;
 

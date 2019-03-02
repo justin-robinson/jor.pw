@@ -83,12 +83,13 @@
     }
 
     .nav {
+      box-shadow: 0 0 60px -10px #999 inset;
       position: fixed;
       top: 0;
       z-index: z(nav);
       height: $nav-height;
       width: 100%;
-      background: #bbb;
+      background: #eae825;
       @media #{$phone} {
         height: $nav-height-phone;
       }
