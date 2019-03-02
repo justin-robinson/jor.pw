@@ -1,18 +1,20 @@
 <template>
-  <nav class="nav">
-    <img class="headshot" :src="headshotImageUrl(nav.headshotImageName)" alt="headshot">
-    <h1 class="full-name">{{ nav.fullName }}</h1>
-    <div class="contact">
-      <template v-for="(link, index) in nav.links">
-        <a class="link" v-bind:href="link.href">{{ link.text }}</a>
-        <span v-if="index !== lastLinkIndex"> | </span>
-      </template>
-    </div>
-  </nav>
+  <div class="nav-wrapper">
+    <nav class="nav">
+      <img class="headshot" :src="headshotImageUrl(nav.headshotImageName)" alt="headshot">
+      <h1 class="full-name">{{ nav.fullName }}</h1>
+      <div class="contact">
+        <template v-for="(link, index) in nav.links">
+          <a class="link" v-bind:href="link.href">{{ link.text }}</a>
+          <span v-if="index !== lastLinkIndex"> | </span>
+        </template>
+      </div>
+    </nav>
+  </div>
 </template>
 
 <script lang="ts">
-  import {Component, Vue} from 'vue-property-decorator';
+  import {Component, Prop, Vue} from 'vue-property-decorator';
 
   @Component
   export default class Nav extends Vue {
@@ -41,7 +43,7 @@
         this.hasShrunken = true;
         this.$el.classList.add('shrink');
         this.$el.classList.remove('expand');
-      } else if (this.hasShrunken) {
+      } else if (this.hasShrunken && !window.scrollY) {
         this.$el.classList.remove('shrink');
         this.$el.classList.add('expand');
       }
@@ -65,145 +67,77 @@
 <style scoped lang="scss">
   @import "../scss/global";
 
+  $nav-height: 90px;
+  $nav-height-phone: 45px;
   $nav-padding: 10px;
   $nav-scroll-shrink: 30px;
   $headshot-image-size: $nav-height - $nav-padding*2;
   $headshot-image-size-scroll: $headshot-image-size - 30px;
   $headshot-image-size-phone: $nav-height-phone - $nav-padding*2;
 
-  .nav {
-    position: fixed;
-    top: 0;
-    z-index: z(nav);
+  .nav-wrapper {
     height: $nav-height;
-    width: 100%;
-    background: #bbb;
+
     @media #{$phone} {
       height: $nav-height-phone;
     }
 
-    .headshot {
-      position: absolute;
-      left: $nav-padding;
-      top: $nav-padding;
-      height: $headshot-image-size;
-      border-radius: $headshot-image-size/2 + $nav-padding;
-      @media #{$phone} {
-        height: $headshot-image-size-phone;
-        border-radius: $headshot-image-size-phone/2;
-      }
-    }
-
-    .full-name {
-      margin: 0;
-      font-size: 3em;
-      font-weight: normal;
-      white-space: nowrap;
-      @media #{$phone} {
-        font-size: $nav-height-phone - $nav-padding;
-        vertical-align: center;
-      }
-    }
-
-    .contact {
-      font-size: initial;
-      position: absolute;
-      bottom: 0;
-      margin: 0;
+    .nav {
+      position: fixed;
+      top: 0;
+      z-index: z(nav);
+      height: $nav-height;
       width: 100%;
-      white-space: nowrap;
-      .link {
-        color: $font-color;
-      }
-
+      background: #bbb;
       @media #{$phone} {
-        display: none;
+        height: $nav-height-phone;
       }
-    }
 
-    @keyframes shrink-nav {
-      from {
-        height: $nav-height;
-      }
-      to {
-        height: $nav-height - $nav-scroll-shrink;
-      }
-    }
-
-    @keyframes expand-nav {
-      from {
-        height: $nav-height - $nav-scroll-shrink;
-      }
-      to {
-        height: $nav-height;
-      }
-    }
-
-    @keyframes shrink-nav-headshot {
-      from {
+      .headshot {
+        position: absolute;
+        left: $nav-padding;
+        top: $nav-padding;
         height: $headshot-image-size;
-        border-radius: $headshot-image-size/2;
+        border-radius: $headshot-image-size/2 + $nav-padding;
+        @media #{$phone} {
+          height: $headshot-image-size-phone;
+          border-radius: $headshot-image-size-phone/2;
+        }
       }
-      to {
-        height: $headshot-image-size - $nav-scroll-shrink;
-        border-radius: ($headshot-image-size - $nav-scroll-shrink)/2;
-      }
-    }
 
-    @keyframes expand-nav-headshot {
-      from {
-        height: $headshot-image-size - $nav-scroll-shrink;
-        border-radius: ($headshot-image-size - $nav-scroll-shrink)/2;
+      .full-name {
+        margin: 0;
+        font-size: 3em;
+        font-weight: normal;
+        white-space: nowrap;
+        @media #{$phone} {
+          font-size: $nav-height-phone - $nav-padding;
+          vertical-align: center;
+        }
       }
-      to {
-        height: $headshot-image-size;
-        border-radius: $headshot-image-size/2;
-      }
-    }
 
-    @keyframes shrink-nav-full-name {
-      from {
-        padding-left: 0;
+      .contact {
+        font-size: initial;
+        position: absolute;
+        bottom: 0;
+        margin: 0;
         width: 100%;
-      }
-      to {
-        width: 0;
-        padding-left: #{$headshot-image-size - $nav-scroll-shrink + $nav-padding*2};
-      }
-    }
+        white-space: nowrap;
+        .link {
+          color: $font-color;
+        }
 
-    @keyframes expand-nav-full-name {
-      from {
-        width: 0;
-        padding-left: #{$headshot-image-size - $nav-scroll-shrink + $nav-padding*2};
-      }
-      to {
-        width: 100%;
-        padding-left: 0;
-      }
-    }
-
-    @keyframes shrink-nav-contact {
-      from {
-        opacity: 1;
-      }
-      to {
-        opacity: 0;
-      }
-    }
-
-    @keyframes expand-nav-contact {
-      from {
-        opacity: 0;
-      }
-      to {
-        opacity: 1;
+        @media #{$phone} {
+          display: none;
+        }
       }
     }
 
     &.shrink {
       @media #{$not-mobile} {
-        animation: shrink-nav 1s 0s 1 normal forwards;
+        &, .nav {
+          animation: shrink-nav 1s 0s 1 normal forwards;
+        }
 
         .headshot {
           animation: shrink-nav-headshot 1s 0s 1 normal forwards;
@@ -222,7 +156,9 @@
 
     &.expand {
       @media #{$not-mobile} {
-        animation: expand-nav 1s 0s 1 normal forwards;
+        &, .nav {
+          animation: expand-nav 1s 0s 1 normal forwards;
+        }
 
         .headshot {
           animation: expand-nav-headshot 1s 0s 1 normal forwards;
@@ -239,9 +175,84 @@
     }
   }
 
-  .hidden {
-    position: unset;
-    visibility: hidden;
+  @keyframes shrink-nav {
+    from {
+      height: $nav-height;
+    }
+    to {
+      height: $nav-height - $nav-scroll-shrink;
+    }
+  }
+
+  @keyframes expand-nav {
+    from {
+      height: $nav-height - $nav-scroll-shrink;
+    }
+    to {
+      height: $nav-height;
+    }
+  }
+
+  @keyframes shrink-nav-headshot {
+    from {
+      height: $headshot-image-size;
+      border-radius: $headshot-image-size/2;
+    }
+    to {
+      height: $headshot-image-size - $nav-scroll-shrink;
+      border-radius: ($headshot-image-size - $nav-scroll-shrink)/2;
+    }
+  }
+
+  @keyframes expand-nav-headshot {
+    from {
+      height: $headshot-image-size - $nav-scroll-shrink;
+      border-radius: ($headshot-image-size - $nav-scroll-shrink)/2;
+    }
+    to {
+      height: $headshot-image-size;
+      border-radius: $headshot-image-size/2;
+    }
+  }
+
+  @keyframes shrink-nav-full-name {
+    from {
+      padding-left: 0;
+      width: 100%;
+    }
+    to {
+      width: 0;
+      padding-left: #{$headshot-image-size - $nav-scroll-shrink + $nav-padding*2};
+    }
+  }
+
+  @keyframes expand-nav-full-name {
+    from {
+      width: 0;
+      padding-left: #{$headshot-image-size - $nav-scroll-shrink + $nav-padding*2};
+    }
+    to {
+      width: 100%;
+      padding-left: 0;
+    }
+  }
+
+  @keyframes shrink-nav-contact {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+
+  @keyframes expand-nav-contact {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
   }
 
 </style>
