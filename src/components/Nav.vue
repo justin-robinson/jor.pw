@@ -80,6 +80,7 @@
       background: #eae825;
       @media #{$phone} {
         height: $nav-height-phone;
+        box-shadow: unset;
       }
 
       .headshot {
