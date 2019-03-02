@@ -1,10 +1,10 @@
 <template>
   <div class="nav-wrapper">
     <nav class="nav">
-      <img class="headshot" :src="headshotImageUrl(nav.headshotImageName)" alt="headshot">
-      <h1 class="full-name">{{ nav.fullName }}</h1>
+      <img class="headshot" :src="headshotImageUrl(headshotImageName)" alt="headshot">
+      <h1 class="full-name">{{ fullName }}</h1>
       <div class="contact">
-        <template v-for="(link, index) in nav.links">
+        <template v-for="(link, index) in links">
           <a class="link" v-bind:href="link.href">{{ link.text }}</a>
           <span v-if="index !== lastLinkIndex"> | </span>
         </template>
@@ -20,12 +20,10 @@
   export default class Nav extends Vue {
     private scrollYThreshold = 120;
     private hasShrunken = false;
-    private nav = {
-      fullName: '',
-      headshotImageName: '',
-      links: [],
-    };
 
+    @Prop() private fullName!: '';
+    @Prop() private headshotImageName!: '';
+    @Prop() private links!: object[];
     @Prop() private scrollPosition!: number;
 
     @Watch('scrollPosition')
@@ -49,13 +47,7 @@
     }
 
     get lastLinkIndex() {
-      return Object.keys(this.nav.links).length - 1;
-    }
-
-    private beforeMount() {
-      fetch('/api/nav.json')
-        .then((response) => response.json())
-        .then((nav) => this.nav = nav);
+      return Object.keys(this.links).length - 1;
     }
   }
 </script>

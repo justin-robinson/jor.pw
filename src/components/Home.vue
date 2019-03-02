@@ -1,6 +1,6 @@
 <template>
   <div id="home">
-    <template v-for="(entry, i) in orderedEntries">
+    <template v-for="entry in orderedEntries">
       <CardSection :name="entry.sectionName" :key="entry.sortOrder">
         <Card v-for="(entryData, index) in entry.data" :key="entry.sortOrder + '.' + index">
           <Entry
@@ -40,7 +40,7 @@
       ],
     };
 
-    private mounted() {
+    private beforeMount() {
       fetch('/api/resume.json')
         .then((response) => response.json())
         .then((resume) => this.resume = resume);
