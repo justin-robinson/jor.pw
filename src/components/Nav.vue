@@ -43,7 +43,7 @@
         this.hasShrunken = true;
         this.$el.classList.add('shrink');
         this.$el.classList.remove('expand');
-      } else if (this.hasShrunken && !window.scrollY) {
+      } else if (this.hasShrunken && window.scrollY < this.scrollYThreshold / 2 ) {
         this.$el.classList.remove('shrink');
         this.$el.classList.add('expand');
       }
