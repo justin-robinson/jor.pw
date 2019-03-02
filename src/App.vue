@@ -11,6 +11,7 @@
         <Home/>
       </div>
     </div>
+    <DeviceType/>
   </div>
 </template>
 
@@ -18,10 +19,11 @@
   import {Component, Vue} from 'vue-property-decorator';
   import Home from '@/components/Home.vue';
   import Nav from '@/components/Nav.vue';
+  import DeviceType from '@/components/DeviceType.vue';
 
   @Component({
     components: {
-      Home, Nav,
+      DeviceType, Home, Nav,
     },
   })
   export default class App extends Vue {
