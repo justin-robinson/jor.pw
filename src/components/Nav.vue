@@ -108,7 +108,7 @@
       .contact {
         font-size: initial;
         position: absolute;
-        bottom: 0;
+        bottom: 5px;
         margin: 0;
         width: 100%;
         white-space: nowrap;
