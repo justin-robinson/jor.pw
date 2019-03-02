@@ -24,9 +24,8 @@
     margin: 0 $side-margin $side-margin $side-margin;
     padding: $padding;
     border-radius: 4px;
-    -webkit-box-shadow: 2px 2px 14px 3px #999;
-    -moz-box-shadow: 2px 2px 14px 3px #999;
-    box-shadow: 2px 2px 14px 3px #999;
+    box-shadow: 2px 2px 14px 3px #999,
+      0 0 300px -100px #999 inset;
   }
 
 </style>
