@@ -14,12 +14,14 @@
 
 <style scoped lang="scss">
   @import "../scss/global";
-  $padding: $card-margin;
+  $background-color: #ddd;
+  $side-margin: 20px;
+  $padding: $side-margin;
 
   #card {
     position: relative;
-    background: $card-background-color;
-    margin: $card-margin;
+    background: $background-color;
+    margin: 0 $side-margin $side-margin $side-margin;
     padding: $padding;
     border-radius: 4px;
     -webkit-box-shadow: 2px 2px 14px 3px #999;
