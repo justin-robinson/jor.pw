@@ -14,7 +14,7 @@
 </template>
 
 <script lang="ts">
-  import {Component, Prop, Vue} from 'vue-property-decorator';
+  import {Component, Prop, Vue, Watch} from 'vue-property-decorator';
 
   @Component
   export default class Nav extends Vue {
@@ -25,6 +25,20 @@
       headshotImageName: '',
       links: [],
     };
+
+    @Prop() private scrollPosition!: number;
+
+    @Watch('scrollPosition')
+    private onScrollPositionChanged(scrollPosition: number) {
+      if (scrollPosition > this.scrollYThreshold) {
+        this.hasShrunken = true;
+        this.$el.classList.add('shrink');
+        this.$el.classList.remove('expand');
+      } else if (this.hasShrunken && scrollPosition < this.scrollYThreshold / 2 ) {
+        this.$el.classList.remove('shrink');
+        this.$el.classList.add('expand');
+      }
+    }
 
     private headshotImageUrl(imageName: string) {
       try {
@@ -38,28 +52,10 @@
       return Object.keys(this.nav.links).length - 1;
     }
 
-    private onScroll() {
-      if (window.scrollY > this.scrollYThreshold) {
-        this.hasShrunken = true;
-        this.$el.classList.add('shrink');
-        this.$el.classList.remove('expand');
-      } else if (this.hasShrunken && window.scrollY < this.scrollYThreshold / 2 ) {
-        this.$el.classList.remove('shrink');
-        this.$el.classList.add('expand');
-      }
-    }
-
     private beforeMount() {
       fetch('/api/nav.json')
         .then((response) => response.json())
-        .then((nav) => this.nav = nav)
-        .then(() => {
-          window.addEventListener('scroll', this.onScroll);
-        });
-    }
-
-    private beforeDestroy() {
-      window.removeEventListener('scroll', this.onScroll);
+        .then((nav) => this.nav = nav);
     }
   }
 </script>

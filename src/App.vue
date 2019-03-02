@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <Nav/>
-    <div class="grid">
+    <Nav v-bind:scrollPosition="scrollTop"/>
+    <div class="grid" ref="grid" v-on:scroll="onScroll">
       <div class="item">
         <Home/>
       </div>
@@ -20,6 +20,11 @@
     },
   })
   export default class App extends Vue {
+    private scrollTop = 0;
+
+    private onScroll() {
+      this.scrollTop = (this.$refs.grid as HTMLDivElement).scrollTop;
+    }
   }
 </script>
 
@@ -40,7 +45,11 @@
   }
 
   .grid {
+    height: 100%;
+    width: 100%;
+    position: fixed;
     display: grid;
+    overflow-y: scroll;
     grid-template-columns: 1fr [resume] minmax(auto, $tablet-width) 1fr;
     @media #{$phone} {
       grid-template-columns: 1fr [resume] minmax(auto, $phone-width) 1fr;

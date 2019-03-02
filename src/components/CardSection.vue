@@ -1,5 +1,5 @@
 <template>
-  <div id="card-section">
+  <div class="card-section">
     <h2 class="header">{{ name }}</h2>
     <slot></slot>
   </div>
@@ -28,6 +28,10 @@
     box-shadow: 2px 2px 14px 3px #999;
     font-size: 1.5em;
     margin: $margin $side-margin;
+    position: sticky;
+    top: 10px;
+    z-index: z(grid, card-section-header);
+
   }
 
 </style>
