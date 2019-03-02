@@ -47,13 +47,18 @@
 <style lang="scss">
   @import "scss/global";
 
+  @font-face {
+    font-family: "GT-Walsheim";
+    src: url("/fonts/GT-Walsheim-Pro-Regular.woff2");
+  }
+
   body {
     margin: 0;
     background-color: #ddd;
   }
 
   #app {
-    font-family: 'Avenir', Helvetica, Arial, sans-serif;
+    font-family: 'GT-Walsheim', 'Avenir', Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
