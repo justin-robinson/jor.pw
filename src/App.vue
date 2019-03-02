@@ -65,7 +65,7 @@
     width: 100%;
     position: fixed;
     display: grid;
-    overflow-y: scroll;
+    overflow-y: auto;
     grid-template-columns: 1fr [resume] minmax(auto, $tablet-width) 1fr;
     @media #{$phone} {
       grid-template-columns: 1fr [resume] minmax(auto, $phone-width) 1fr;
@@ -74,5 +74,6 @@
 
   .item {
     grid-column: resume;
+    height: calc(100% + 90px);
   }
 </style>
