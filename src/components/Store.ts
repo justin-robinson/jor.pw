@@ -1,15 +1,16 @@
-import {Module, Mutation, VuexModule} from 'vuex-module-decorators';
+import Vue from 'vue';
+import Vuex from 'vuex';
+import Device from '@/components/store/Device';
+import Nav from '@/components/store/Nav';
+import Resume from '@/components/store/Resume';
 
-@Module
-export default class Store extends VuexModule {
-  private deviceTypeValue = -1;
+Vue.use(Vuex);
 
-  @Mutation
-  private setDeviceType(newDeviceType: number) {
-    this.deviceTypeValue = newDeviceType;
-  }
-
-  get deviceType() {
-    return this.deviceTypeValue;
-  }
-}
+export default new Vuex.Store({
+  state: {},
+  modules: {
+    device: Device,
+    resume: Resume,
+    nav: Nav,
+  },
+});

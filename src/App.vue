@@ -2,9 +2,9 @@
   <div id="app">
     <Nav
             v-bind:scrollPosition="scrollTop"
-            :fullName="nav.fullName"
-            :headshotImageName="nav.headshotImageName"
-            :links="nav.links"
+            :fullName="$store.state.nav.fullName"
+            :headshotImageName="$store.state.nav.headshotImageName"
+            :links="$store.state.nav.links"
     />
     <div class="grid" ref="grid" v-on:scroll="onScroll">
       <div class="item">
@@ -28,20 +28,13 @@
   })
   export default class App extends Vue {
     private scrollTop = 0;
-    private nav = {
-      fullName: '',
-      headshotImageName: '',
-      links: [],
-    };
 
     private onScroll() {
       this.scrollTop = (this.$refs.grid as HTMLDivElement).scrollTop;
     }
 
     private beforeMount() {
-      fetch('/api/nav.json')
-        .then((response) => response.json())
-        .then((nav) => this.nav = nav);
+      this.$store.dispatch('fetchNav');
     }
   }
 </script>

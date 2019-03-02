@@ -1,6 +1,6 @@
 <template>
   <div id="home">
-    <template v-for="entry in orderedEntries">
+    <template v-for="entry in $store.state.resume.entries">
       <CardSection :name="entry.sectionName" :key="entry.sortOrder">
         <Card v-for="(entryData, index) in entry.data" :key="entry.sortOrder + '.' + index">
           <Entry
@@ -30,25 +30,8 @@
     },
   })
   export default class Home extends Vue {
-
-    private resume = {
-      entries: [
-        {
-          sortOrder: 0,
-          sectionName: '',
-        },
-      ],
-    };
-
     private beforeMount() {
-      fetch('/api/resume.json')
-        .then((response) => response.json())
-        .then((resume) => this.resume = resume);
-    }
-
-    get orderedEntries() {
-      this.resume.entries.sort((entryA, entryB) => entryA.sortOrder - entryB.sortOrder );
-      return this.resume.entries;
+      this.$store.dispatch('fetchResume');
     }
   }
 </script>
