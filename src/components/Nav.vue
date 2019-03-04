@@ -2,7 +2,9 @@
   <div class="nav-wrapper">
     <nav class="nav">
       <img class="headshot" :src="headshotImageUrl(headshotImageName)" alt="headshot">
-      <h1 class="full-name">{{ fullName }}</h1>
+      <h1 class="full-name-container">
+        <span class="full-name">{{ fullName }}</span>
+      </h1>
       <div class="contacts-scroller">
         <div class="contacts">
           <div class="contact" v-for="(link, index) in links">
@@ -56,12 +58,12 @@
   @import "../scss/global";
 
   $nav-height: 90px;
-  $nav-height-phone: 70px;
+  $nav-height-phone: 80px;
   $nav-padding: 10px;
   $nav-scroll-shrink: 30px;
   $headshot-image-size: $nav-height - $nav-padding*2;
   $headshot-image-size-scroll: $headshot-image-size - 30px;
-  $headshot-image-size-phone: $nav-height-phone/2;
+  $headshot-image-size-phone: 40px;
 
   $icon-size: 16px;
 
@@ -69,7 +71,7 @@
     height: $nav-height;
 
     &, .nav {
-      transition: height 1s ease;
+      transition: height 1s;
     }
 
     @media #{$phone} {
@@ -82,7 +84,7 @@
       top: 0;
       z-index: z(nav);
       height: $nav-height;
-      width: 100%;
+      width: 100vw;
       background: #eae825;
       @media #{$phone} {
         height: $nav-height-phone;
@@ -96,47 +98,66 @@
         top: $nav-padding;
         height: $headshot-image-size;
         border-radius: $headshot-image-size/2 + $nav-padding;
-        transition: height 1s ease, border-radius 1s ease;
+        transition: height 1s, border-radius 1s;
         @media #{$phone} {
           height: $headshot-image-size-phone;
           border-radius: $headshot-image-size-phone/2;
         }
       }
 
-      .full-name {
-        margin: 0;
+      .full-name-container {
+        text-align: left;
+        margin: 0 auto;
         font-size: 3em;
         font-weight: normal;
-        white-space: nowrap;
-        width: 100%;
-        transition: width 1s ease, padding-left 1s ease;
-        @media #{$phone} {
-          font-size: $nav-height-phone/2;
-          vertical-align: center;
+        display: block;
+        width: 100vw;
+        transform: translateX(50%);
+        transition: transform 1s, padding-left 1s;
+
+        .full-name {
+          display: inline-block;
+          transform: translateX(-50%);
+          transition: transform 1s;
+          @media #{$phone} {
+            font-size: 0.8em;
+            vertical-align: center;
+          }
         }
       }
 
+
       .contacts-scroller {
+        width: 100vw;
+        @media #{$not-mobile} {
+          display: block;
+          text-align: left;
+          transform: translateX(50%);
+          transition: transform 1s;
+        }
         @media #{$phone} {
           overflow: hidden;
           position: relative;
-          width: 100vw;
           height: 100%
         }
       }
 
       .contacts {
+        display: inline-block;
         font-size: initial;
-        position: absolute;
         bottom: 5px;
         margin: 0;
-        width: 100%;
         white-space: nowrap;
-        transition: opacity 1s ease;
+        transition: transform 1s;
+        @media #{$not-mobile} {
+          transform: translateX(-50%);
+        }
         @media #{$phone} {
+          width: 100%;
           position: absolute;
           top: 0;
           bottom: 0;
+          left: 0;
           overflow: auto;
           scroll-snap-type: x mandatory;
         }
@@ -175,6 +196,7 @@
             content: '|';
             width: 15px;
             display: inline-block;
+            text-align: center;
             @media #{$phone} {
               background: url('/assets/right-arrow.svg');
               content: '';
@@ -203,14 +225,21 @@
           border-radius: ($headshot-image-size - $nav-scroll-shrink)/2;
         }
 
-        .full-name {
-          width: 0;
+        .full-name-container {
+          transform: translateX(0%);
           padding-left: #{$headshot-image-size - $nav-scroll-shrink + $nav-padding*2};
-          float: left;
+
+          .full-name {
+            transform: translateX(0%);
+          }
         }
 
-        .contact {
-          opacity: 0;
+        .contacts-scroller {
+          transform: translateX(100%);
+
+          .contacts {
+            transform: translate(-100%, -100%)
+          }
         }
       }
     }
