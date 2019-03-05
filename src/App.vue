@@ -39,6 +39,14 @@
   }
 </script>
 
+<style>
+  :root {
+    --color-primary: #ff9900;
+    --font-color-primary: #000;
+    --font-color-secondary: #fff;
+  }
+</style>
+
 <style lang="scss">
   @import "scss/global";
 
@@ -57,7 +65,7 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
-    color: $font-color-secondary;
+    color: var(--font-color-secondary);
   }
 
   .grid {

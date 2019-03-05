@@ -57,53 +57,41 @@
 <style scoped lang="scss">
   @import "../scss/global";
 
-  $nav-height: 90px;
-  $nav-height-phone: 80px;
-  $nav-padding: 10px;
-  $nav-scroll-shrink: 30px;
-  $headshot-image-size: $nav-height - $nav-padding*2;
-  $headshot-image-size-scroll: $headshot-image-size - 30px;
-  $headshot-image-size-phone: 40px;
-
-  $contact-font-size: 1em;
-
-  $icon-size: 16px;
-
   .nav-wrapper {
-    height: $nav-height;
+    --height: 90px;
+    --padding: 10px;
+    height: var(--height);
+
+    @media #{$phone} {
+      --height: 80px;
+    }
 
     &, .nav {
       transition: height 1s;
-    }
-
-    @media #{$phone} {
-      height: $nav-height-phone;
+      height: var(--height);
+      --headshot-height: calc(var(--height) - var(--padding) * 2);
     }
 
     .nav {
       position: fixed;
       top: 0;
       z-index: z(nav);
-      height: $nav-height;
       width: 100vw;
-      background: $color-primary;
-      color: $font-color-secondary;
+      background: var(--color-primary);
+      color: var(--font-color-secondary);
       @media #{$phone} {
-        height: $nav-height-phone;
-        box-shadow: unset;
         overflow: hidden;
       }
 
       .headshot {
         position: absolute;
-        left: $nav-padding;
-        top: $nav-padding;
-        height: $headshot-image-size;
-        border-radius: $headshot-image-size/2 + $nav-padding;
+        left: var(--padding);
+        top: var(--padding);
+        height: var(--headshot-height);
+        border-radius: calc(var(--headshot-height) /2);
         transition: height 1s, border-radius 1s;
         @media #{$phone} {
-          height: $headshot-image-size-phone;
-          border-radius: $headshot-image-size-phone/2;
+          --headshot-height: calc(var(--height) / 2);
         }
       }
 
@@ -146,7 +134,7 @@
 
       .contacts {
         display: inline-block;
-        font-size: $contact-font-size;
+        font-size: 1em;
         bottom: 5px;
         margin: 0;
         white-space: nowrap;
@@ -167,9 +155,10 @@
 
         .contact {
           display: inline-block;
+          --icon-size: 16px;
 
           .link {
-            color: $font-color-secondary;
+            color: var(--font-color-secondary);
           }
 
           @media #{$phone} {
@@ -183,9 +172,9 @@
               background: url('/assets/right-arrow.svg');
               content: '';
               float: left;
-              height: $icon-size;
+              height: var(--icon-size);
+              width: var(--icon-size);
               transform: rotate(180deg);
-              width: $icon-size;
             }
           }
 
@@ -198,8 +187,8 @@
               background: url('/assets/right-arrow.svg');
               content: '';
               float: right;
-              height: $icon-size;
-              width: $icon-size;
+              height: var(--icon-size);
+              width: var(--icon-size);
             }
           }
 
@@ -214,17 +203,12 @@
     &.shrink {
       @media #{$not-mobile} {
         &, .nav {
-          height: $nav-height - $nav-scroll-shrink;
-        }
-
-        .headshot {
-          height: $headshot-image-size - $nav-scroll-shrink;
-          border-radius: ($headshot-image-size - $nav-scroll-shrink)/2;
+          --height: 60px;
         }
 
         .full-name-container {
           transform: translateX(0%);
-          padding-left: #{$headshot-image-size - $nav-scroll-shrink + $nav-padding*2};
+          padding-left: calc(var(--headshot-height) + var(--padding)*2);
 
           .full-name {
             transform: translateX(0%);

@@ -14,19 +14,15 @@
 
 <style scoped lang="scss">
   @import "../scss/global";
-  $background-color: #fff;
-  $bottom-margin: 20px;
-  $bottom-margin-mobile: 10px;
-  $padding: 20px;
 
   #card {
     position: relative;
-    background: $background-color;
-    margin: 0 0 $bottom-margin 0;
-    padding: $padding;
+    background: #fff;
+    margin: 0 0 20px 0;
+    padding: 10px;
 
     @media #{$phone} {
-      margin: 0 0 $bottom-margin-mobile 0;
+      margin: 0 0 10px 0;
     }
   }
 

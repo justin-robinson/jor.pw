@@ -36,8 +36,6 @@
 <style scoped lang="scss">
   @import "../../scss/global";
 
-  $padding: 10px;
-
   .content {
     color: black;
     text-align: left;
@@ -81,11 +79,11 @@
     display: inline-block;
     position: relative;
     z-index: z(grid, details);
-    color: $font-color-primary;
+    color: var(--font-color-primary);
 
     ::v-deep {
       ul {
-        padding: 0 0 0 ($padding * 2);
+        padding: 0 0 0 20px;
         margin: 0;
 
         li {
@@ -94,7 +92,7 @@
       }
 
       a {
-        color: $font-color-primary;
+        color: var(--font-color-primary);
       }
     }
   }

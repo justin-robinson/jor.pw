@@ -18,40 +18,37 @@
 
 <style scoped lang="scss">
   @import "../scss/global";
-  $side-margin: 10px;
-  $margin: 20px;
-  $margin-mobile: 10px;
-  $card-background-color: #ddd;
-  $card-header-background-color: #333;
 
-  $height: 2.5em;
-  $height-mobile: 2em;
+  .card-section {
+    --height: 2.5em;
+    --height-mobile: 2em;
+  }
 
   .header-wrapper {
     width: 100%;
-    background: $card-header-background-color;
+    background: #333;
     position: sticky;
     z-index: z(grid, card-section-header);
     top: 0;
     margin: 0;
-    height: $height;
+    height: var(--height);
 
     @media #{$phone} {
-      height: $height-mobile;
+      height: var(--height-mobile);
     }
   }
 
   .header {
     width: 100%;
-    color: $card-background-color;
+    color: #ddd;
     font-size: 1.5rem;
     position: absolute;
     left: 0;
     right: 0;
-    top: $height/2;
+    top: calc(var(--height)/2);
     transform: translateY(-50%);
     @media #{$phone} {
-      top: $height-mobile/2;
+      top: calc(var(--height-mobile)/2);
     }
   }
 
