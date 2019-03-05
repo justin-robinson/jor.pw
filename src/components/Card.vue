@@ -16,7 +16,7 @@
   @import "../scss/global";
   $background-color: #eee;
   $side-margin: 20px;
-  $bottom-margin-mobile: 20px;
+  $bottom-margin-mobile: 10px;
   $padding: $side-margin;
 
   #card {
@@ -29,6 +29,8 @@
 
     @media #{$phone} {
       margin: 0 0 $bottom-margin-mobile 0;
+      border-radius: 0;
+      box-shadow: 0 0 300px -100px #999 inset;
     }
   }
 
