@@ -2,16 +2,15 @@
   <div class="content">
     <div class="header" v-if="title">
       <div class="header-left">
-        <h3 class="block title">{{ title }}</h3>
-        <span class="block subtitle">{{ subtitle }}</span>
+        <img class="background" alt="company logo" :src="getImgUrl(imageName)" v-bind:alt="imageName" v-if="imageName">
       </div>
       <div class="header-right">
+        <span class="block subtitle">{{ subtitle }}</span>
         <span class="block">{{ headerRightTitle }}</span>
         <span class="block">{{ headerRightSubtitle }}</span>
       </div>
     </div>
     <div class="details" v-html="detailsHTML"></div>
-    <img class="background" alt="company logo" :src="getImgUrl(imageName)" v-bind:alt="imageName" v-if="imageName">
   </div>
 </template>
 
@@ -57,9 +56,13 @@
 
     .header-left {
       grid-column: left;
-      text-align: left;
-      .title {
-        margin: 0;
+      margin-right: 10px;
+      .background {
+        max-width: 100%;
+        max-height: 100px;
+        width: auto;
+        height: auto;
+        object-fit: contain;
       }
     }
 
@@ -67,6 +70,9 @@
       font-size: .8em;
       grid-column: right;
       text-align: right;
+      .subtitle {
+        font-weight: 900;
+      }
     }
   }
 
@@ -81,26 +87,16 @@
       ul {
         padding: 0 0 0 ($padding * 2);
         margin: 0;
+
+        li {
+          margin: 1em 0;
+        }
       }
 
       a {
         color: $font-color-primary;
       }
     }
-  }
-
-  .background {
-    height: calc(100% - #{$padding * 2});
-    left: 0;
-    margin: $padding;
-    object-fit: contain;
-    opacity: .2;
-    filter: alpha(opacity=20); /* For IE8 and earlier */
-    position: absolute;
-    top: 0;
-    vertical-align: middle;
-    width: calc(100% - #{$padding * 2});
-    z-index: z(grid, background);
   }
 
 </style>
