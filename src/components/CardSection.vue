@@ -18,6 +18,7 @@
   @import "../scss/global";
   $side-margin: 10px;
   $margin: 20px;
+  $margin-mobile: 10px;
   $card-background-color: #ddd;
   $card-header-background-color: #333;
 
@@ -32,6 +33,12 @@
     top: 10px;
     z-index: z(grid, card-section-header);
 
+    @media #{$phone} {
+      border-radius: unset;
+      margin: $margin-mobile 0;
+      top: 0;
+    }
   }
+
 
 </style>
