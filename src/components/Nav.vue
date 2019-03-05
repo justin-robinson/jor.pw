@@ -160,6 +160,7 @@
           left: 0;
           overflow: auto;
           scroll-snap-type: x mandatory;
+          scroll-snap-stop: always;
         }
 
         .contact {
