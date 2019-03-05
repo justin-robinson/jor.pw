@@ -181,16 +181,10 @@
               background: url('/assets/right-arrow.svg');
               content: '';
               float: left;
-              width: $icon-size;
               height: $icon-size;
               transform: rotate(180deg);
-
+              width: $icon-size;
             }
-          }
-
-          &:first-child:before {
-            background: unset;
-            content: '';
           }
 
           &::after {
@@ -207,7 +201,7 @@
             }
           }
 
-          &:last-child:after {
+          &:first-child:before, &:last-child:after {
             background: unset;
             content: '';
           }
