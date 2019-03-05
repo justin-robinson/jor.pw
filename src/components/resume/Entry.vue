@@ -1,6 +1,6 @@
 <template>
   <div class="content">
-    <div class="header" v-if="title">
+    <div class="header">
       <div class="header-left">
         <img class="background" alt="company logo" :src="getImgUrl(imageName)" v-bind:alt="imageName" v-if="imageName">
       </div>
