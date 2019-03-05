@@ -75,6 +75,7 @@
     display: inline-block;
     position: relative;
     z-index: z(grid, details);
+    color: $font-color-primary;
 
     ::v-deep {
       ul {
@@ -83,7 +84,7 @@
       }
 
       a {
-        color: $font-color-secondary;
+        color: $font-color-primary;
       }
     }
   }

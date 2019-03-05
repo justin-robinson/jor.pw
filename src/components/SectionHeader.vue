@@ -1,6 +1,8 @@
 <template>
   <div class="card-section">
-    <h2 class="header">{{ name }}</h2>
+    <h2 class="header-wrapper">
+      <span class="header">{{ name }}</span>
+    </h2>
     <slot></slot>
   </div>
 </template>
@@ -22,21 +24,34 @@
   $card-background-color: #ddd;
   $card-header-background-color: #333;
 
-  .header {
+  $height: 2.5em;
+  $height-mobile: 2em;
+
+  .header-wrapper {
+    width: 100%;
     background: $card-header-background-color;
-    color: $card-background-color;
-    border-radius: 4px;
-    box-shadow: 2px 2px 14px 3px #999;
-    font-size: 1.5em;
-    margin: $margin $side-margin;
     position: sticky;
-    top: 10px;
     z-index: z(grid, card-section-header);
+    top: 0;
+    margin: 0;
+    height: $height;
 
     @media #{$phone} {
-      border-radius: unset;
-      margin: $margin-mobile 0;
-      top: 0;
+      height: $height-mobile;
+    }
+  }
+
+  .header {
+    width: 100%;
+    color: $card-background-color;
+    font-size: 1.5rem;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: $height/2;
+    transform: translateY(-50%);
+    @media #{$phone} {
+      top: $height-mobile/2;
     }
   }
 
