@@ -190,7 +190,7 @@
           }
 
           &::after {
-            content: '|';
+            content: '\2022';
             width: 15px;
             display: inline-block;
             text-align: center;
