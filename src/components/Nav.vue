@@ -7,9 +7,8 @@
       </h1>
       <div class="contacts-scroller">
         <div class="contacts">
-          <div class="contact" v-for="(link, index) in links">
+          <div class="contact" v-for="link in links">
             <a class="link" v-bind:href="link.href">{{ link.text }}</a>
-            <span v-if="index !== lastLinkIndex"></span>
           </div>
         </div>
       </div>
@@ -46,10 +45,6 @@
       } catch (e) {
         return '';
       }
-    }
-
-    get lastLinkIndex() {
-      return Object.keys(this.links).length - 1;
     }
   }
 </script>
