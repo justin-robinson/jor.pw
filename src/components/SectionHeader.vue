@@ -1,6 +1,6 @@
 <template>
   <div class="card-section">
-    <h2 class="header-wrapper">
+    <h2 class="header-wrapper sticky">
       <span class="header">{{ name }}</span>
     </h2>
     <slot></slot>
@@ -27,9 +27,7 @@
   .header-wrapper {
     width: 100%;
     background: #333;
-    position: sticky;
     z-index: z(grid, card-section-header);
-    top: 0;
     margin: 0;
     height: var(--height);
 
