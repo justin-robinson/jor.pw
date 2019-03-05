@@ -9,7 +9,7 @@
   import {Component, Prop, Vue} from 'vue-property-decorator';
 
   @Component
-  export default class CardSection extends Vue {
+  export default class SectionHeader extends Vue {
     @Prop() private name!: string;
   }
 </script>

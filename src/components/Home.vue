@@ -1,7 +1,7 @@
 <template>
   <div id="home">
     <template v-for="entry in $store.state.resume.entries">
-      <CardSection :name="entry.sectionName" :key="entry.sortOrder">
+      <SectionHeader :name="entry.sectionName" :key="entry.sortOrder">
         <Card v-for="(entryData, index) in entry.data" :key="entry.sortOrder + '.' + index">
           <Entry
                   :title="entryData.title"
@@ -12,7 +12,7 @@
                   :subtitle="entryData.subtitle"
           />
         </Card>
-      </CardSection>
+      </SectionHeader>
     </template>
   </div>
 </template>
@@ -21,11 +21,11 @@
   import {Component, Vue} from 'vue-property-decorator';
   import Card from '@/components/Card.vue';
   import Entry from '@/components/resume/Entry.vue';
-  import CardSection from '@/components/CardSection.vue';
+  import SectionHeader from '@/components/SectionHeader.vue';
 
   @Component({
     components: {
-      CardSection,
+      SectionHeader,
       Card, Entry,
     },
   })
