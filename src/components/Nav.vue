@@ -65,6 +65,8 @@
   $headshot-image-size-scroll: $headshot-image-size - 30px;
   $headshot-image-size-phone: 40px;
 
+  $contact-font-size: 1em;
+
   $icon-size: 16px;
 
   .nav-wrapper {
@@ -79,13 +81,13 @@
     }
 
     .nav {
-      box-shadow: 0 0 60px -10px #999 inset;
       position: fixed;
       top: 0;
       z-index: z(nav);
       height: $nav-height;
       width: 100vw;
-      background: #eae825;
+      background: $color-primary;
+      color: $font-color-secondary;
       @media #{$phone} {
         height: $nav-height-phone;
         box-shadow: unset;
@@ -144,7 +146,7 @@
 
       .contacts {
         display: inline-block;
-        font-size: initial;
+        font-size: $contact-font-size;
         bottom: 5px;
         margin: 0;
         white-space: nowrap;
@@ -167,7 +169,7 @@
           display: inline-block;
 
           .link {
-            color: $font-color;
+            color: $font-color-secondary;
           }
 
           @media #{$phone} {
@@ -233,7 +235,7 @@
           transform: translateX(100%);
 
           .contacts {
-            transform: translate(-100%, -100%)
+            transform: translate(-100%, -2em);
           }
         }
       }

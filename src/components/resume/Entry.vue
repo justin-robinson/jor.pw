@@ -83,7 +83,7 @@
       }
 
       a {
-        color: $font-color;
+        color: $font-color-secondary;
       }
     }
   }
