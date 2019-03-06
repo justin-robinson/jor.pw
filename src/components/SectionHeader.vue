@@ -28,7 +28,7 @@
     width: 100%;
     background: #333;
     z-index: z(grid, card-section-header);
-    margin: 0;
+    margin: 20px 0 0 0;
     height: var(--height);
 
     @media #{$phone} {
