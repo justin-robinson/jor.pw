@@ -27,7 +27,7 @@
     },
   })
   export default class App extends Vue {
-    private scrollTop = 0;
+    private scrollTop: number = window.scrollY;
 
     private onScroll() {
       this.scrollTop = window.scrollY;
@@ -36,6 +36,21 @@
     private beforeMount() {
       window.addEventListener('scroll', this.onScroll);
       this.$store.dispatch('fetchNav');
+    }
+
+    private mounted() {
+      this.injectHeaderTags(document.head);
+    }
+
+    private injectHeaderTags(head: HTMLHeadElement) {
+      const colorPrimary = getComputedStyle(document.documentElement).getPropertyValue('--color-primary');
+      head.appendChild(this.createMetaTag({name: 'theme-color', content: colorPrimary}));
+    }
+
+    private createMetaTag(values: {[key: string]: string}) {
+      const meta = document.createElement('meta');
+      Object.keys(values).forEach((key) => meta.setAttribute(key, values[key]));
+      return meta;
     }
 
     private beforeDestroy() {
