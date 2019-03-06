@@ -5,7 +5,7 @@
       "sectionName": "Summary",
       "data": [
         {
-          "detailsHTML": "Hi, I’m Justin Robinson. A Software Development Engineer (SDE) for Amazon.com. Specifically I work on a team called Post Delivery Experience. We own two things. The first being what started our team, <a href=\"https://www.amazon.com/b/?node=17738977011\">Ship-to-Store</a>. We enable customers to utilize third party service providers that improve their <i>post delivery experience</i>. The second is a patented internal technical solution to a problem that remained unsolved until we launched Ship-to-Store. We’ll call this STSTech. STSTech enables several teams (including mine) and orgs to build their experiences and products both domestically and internationally. We don’t take ourselves too seriously and we’re not afraid to ask for forgiveness. We’re constantly having to do jobs outside of our scope of responsibility and have gained a reputation for finding and fixing problems we don’t own. Every person on my team is capable of leading a project from a business and technical standpoint; a rare feat at a company our size (not to mention the tactful deal slinging product manager we have). I love my team."
+          "detailsHTML": "Hi, I’m Justin Robinson. A Software Development Engineer (SDE) for Amazon.com. Specifically I work on a team called Post Delivery Experience. We own two things. The first being what started our team, <a href=\"https://www.amazon.com/b/?node=17738977011\" target=\"_blank\">Ship-to-Store</a>. We enable customers to utilize third party service providers that improve their <i>post delivery experience</i>. The second is a patented internal technical solution to a problem that remained unsolved until we launched Ship-to-Store. We’ll call this STSTech. STSTech enables several teams (including mine) and orgs to build their experiences and products both domestically and internationally. We don’t take ourselves too seriously and we’re not afraid to ask for forgiveness. We’re constantly having to do jobs outside of our scope of responsibility and have gained a reputation for finding and fixing problems we don’t own. Every person on my team is capable of leading a project from a business and technical standpoint; a rare feat at a company our size (not to mention the tactful deal slinging product manager we have). I love my team."
         }
       ]
     },
@@ -23,7 +23,7 @@
         },
         {
           "title": "American City Business Journals",
-          "detailsHTML": "<ul><li>Increased performance, reliability, maintainability, and iteration speed by migrating internal code bases to my self built <a href=\"https://github.com/justin-robinson/scoop\">PHP Scoop ORM</a></li><li>Rearchitected internal data platform to easily handle incremental changes</li><li>Built Restful Hypermedia HAL api for data platform</li><li>Optimized speed of offline data import and export processes by a factor of 100</li><li>Built Newsleads backbone.js app to monetize contacts from our in-house data platform</li><li>Built web apps using Zend PHP Framework</li><li>Built <a href=\"https://github.com/justin-robinson/reposync\">concurrent code syncing tool using Golang</a></li></ul>",
+          "detailsHTML": "<ul><li>Increased performance, reliability, maintainability, and iteration speed by migrating internal code bases to my self built <a href=\"https://github.com/justin-robinson/scoop\" target=\"_blank\">PHP Scoop ORM</a></li><li>Rearchitected internal data platform to easily handle incremental changes</li><li>Built Restful Hypermedia HAL api for data platform</li><li>Optimized speed of offline data import and export processes by a factor of 100</li><li>Built Newsleads backbone.js app to monetize contacts from our in-house data platform</li><li>Built web apps using Zend PHP Framework</li><li>Built <a href=\"https://github.com/justin-robinson/reposync\" target=\"_blank\">concurrent code syncing tool using Golang</a></li></ul>",
           "imageName": "acbj.png",
           "headerRightSubtitle": "Charlotte, NC",
           "headerRightTitle": "Jan 2016 - Oct 2016",
@@ -77,7 +77,7 @@
       "data": [
         {
           "subtitle": "Queen City Hackathon 1st Place",
-          "detailsHTML": "<span>24 hour hackathon with over 200 individual participants and $10k prize for 1st place. Submitted a prototype machine learning model to help users estimate healthcare costs prior to visit using crowdsourced healthcare data</span><div><a href=\"https://abdsociety.org/queen-city-hackathon\">Details</a> <a href=\"https://github.com/justin-robinson/clthackathon2017 \">Source Code</a></div>",
+          "detailsHTML": "<span>24 hour hackathon with over 200 individual participants and $10k prize for 1st place. Submitted a prototype machine learning model to help users estimate healthcare costs prior to visit using crowdsourced healthcare data</span><div><a href=\"https://abdsociety.org/queen-city-hackathon\" target=\"_blank\">Details</a> <a href=\"https://github.com/justin-robinson/clthackathon2017 target=\"_blank\"\">Source Code</a></div>",
           "imageName": "queen-city-hackathon.png",
           "headerRightTitle": "2017"
         }
