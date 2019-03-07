@@ -141,8 +141,10 @@
         bottom: 0;
         left: 0;
         overflow: auto;
-        scroll-snap-type: x mandatory;
         scroll-snap-stop: always;
+        scroll-snap-type: x mandatory;
+        scroll-snap-points-x: repeat(100%);
+        scroll-snap-type: mandatory;
       }
 
       .contact {
