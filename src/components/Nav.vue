@@ -4,10 +4,12 @@
     <h1 class="full-name-container">
       <span class="full-name">{{ fullName }}</span>
     </h1>
-    <div class="contacts-scroller">
-      <div class="contacts">
+    <div class="contacts-scroller-container">
+      <div ref="contacts" class="contacts">
         <div class="contact" v-for="link in links">
+          <div class="scroll" data-direction="left" v-on:click="scrollHorizontalClick"></div>
           <a class="link" v-bind:href="link.href">{{ link.text }}</a>
+          <div class="scroll" data-direction="right" v-on:click="scrollHorizontalClick"></div>
         </div>
       </div>
     </div>
@@ -21,11 +23,19 @@
   export default class Nav extends Vue {
     private scrollYThreshold = 120;
     private hasShrunken = false;
+    private scrollTriggers!: NodeListOf<any>;
 
     @Prop() private fullName!: '';
     @Prop() private headshotImageName!: '';
     @Prop() private links!: object[];
     @Prop() private scrollPosition!: number;
+
+    private scrollHorizontalClick(event: Event) {
+      const direction = (event.currentTarget as HTMLElement).dataset.direction;
+      const scroller = this.$refs.contacts as HTMLElement;
+      const scrollAmount = scroller.clientWidth * (direction === 'left' ? -1 : 1);
+      scroller.scrollLeft += scrollAmount;
+    }
 
     @Watch('scrollPosition')
     private onScrollPositionChanged(scrollPosition: number) {
@@ -109,7 +119,7 @@
     }
 
 
-    .contacts-scroller {
+    .contacts-scroller-container {
       width: 100vw;
       @media #{$not-mobile} {
         display: block;
@@ -131,6 +141,7 @@
       margin: 0;
       white-space: nowrap;
       transition: transform 1s;
+      scroll-behavior: smooth;
       @media #{$not-mobile} {
         transform: translateX(-50%);
       }
@@ -151,6 +162,32 @@
         display: inline-block;
         --icon-size: 16px;
 
+        @media #{$phone} {
+          position: relative;
+        }
+
+        @mixin scroll-trigger($left, $right) {
+          display: none;
+          @media #{$phone} {
+            position: absolute;
+            display: inherit;
+            opacity: 0;
+            height: 2em;
+            width: 20vw;
+            left: $left;
+            right: $right;
+            z-index: 10000;
+          }
+        }
+
+        .scroll[data-direction="left"] {
+          @include scroll-trigger(0, unset);
+        }
+
+        .scroll[data-direction="right"] {
+          @include scroll-trigger(unset, 0);
+        }
+
         .link {
           color: var(--font-color-secondary);
         }
@@ -160,15 +197,19 @@
           scroll-snap-align: start;
         }
 
+        @mixin arrow($float, $rotation) {
+          background: url('/assets/right-arrow.svg');
+          content: '';
+          float: $float;
+          height: var(--icon-size);
+          width: var(--icon-size);
+          transform: rotate($rotation);
+        }
+
         &::before {
           display: inline-block;
           @media #{$phone} {
-            background: url('/assets/right-arrow.svg');
-            content: '';
-            float: left;
-            height: var(--icon-size);
-            width: var(--icon-size);
-            transform: rotate(180deg);
+            @include arrow(left, 180deg);
           }
         }
 
@@ -178,11 +219,7 @@
           display: inline-block;
           text-align: center;
           @media #{$phone} {
-            background: url('/assets/right-arrow.svg');
-            content: '';
-            float: right;
-            height: var(--icon-size);
-            width: var(--icon-size);
+            @include arrow(right, 0);
           }
         }
 
@@ -205,7 +242,7 @@
           }
         }
 
-        .contacts-scroller {
+        .contacts-scroller-container {
           transform: translateX(100%);
 
           .contacts {
