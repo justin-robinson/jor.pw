@@ -21,7 +21,6 @@
 
   .card-section {
     --height: 2.5em;
-    --height-mobile: 2em;
   }
 
   .header-wrapper {
@@ -32,7 +31,7 @@
     height: var(--height);
 
     @media #{$phone} {
-      height: var(--height-mobile);
+      --height: 2em;
     }
   }
 
@@ -46,7 +45,7 @@
     top: calc(var(--height)/2);
     transform: translateY(-50%);
     @media #{$phone} {
-      top: calc(var(--height-mobile)/2);
+      --height: 2em;
     }
   }
 
