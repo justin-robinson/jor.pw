@@ -13,8 +13,6 @@
 </script>
 
 <style scoped lang="scss">
-  @import "../scss/global";
-
   #card {
     position: relative;
     background: #fff;
@@ -25,5 +23,4 @@
       margin: 0 0 10px 0;
     }
   }
-
 </style>

@@ -62,8 +62,6 @@
 </script>
 
 <style scoped lang="scss">
-  @import "../scss/global";
-
   .nav {
     --default-nav-height: 90px;
     --default-nav-no-shrink: 0px;
@@ -252,5 +250,4 @@
       }
     }
   }
-
 </style>

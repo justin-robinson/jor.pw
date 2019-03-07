@@ -68,8 +68,6 @@
 </style>
 
 <style lang="scss">
-  @import "scss/global";
-
   :root {
     --global-nav-height: 90px;
     --global-nav-shrink: 0px;

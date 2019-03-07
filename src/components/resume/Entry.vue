@@ -34,8 +34,6 @@
 </script>
 
 <style scoped lang="scss">
-  @import "../../scss/global";
-
   .content {
     color: black;
     text-align: left;

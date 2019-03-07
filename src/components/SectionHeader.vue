@@ -17,8 +17,6 @@
 </script>
 
 <style scoped lang="scss">
-  @import "../scss/global";
-
   .card-section {
     --height: 2.5em;
   }
@@ -48,6 +46,4 @@
       --height: 2em;
     }
   }
-
-
 </style>
