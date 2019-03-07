@@ -74,7 +74,7 @@
     --global-nav-height: 90px;
     --global-nav-shrink: 0px;
 
-    @media #{$phone} {
+    @media #{$tablet} {
       --global-nav-height: 80px;
     }
   }

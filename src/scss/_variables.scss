@@ -2,7 +2,9 @@ $phone-width: 600px;
 $phone: "only screen and (max-width: #{$phone-width})";
 $tablet-width: 768px;
 $tablet: "only screen and (max-width: #{$tablet-width})";
-$not-mobile: "only screen and (min-width: #{$phone-width + 1})";
+$desktop-width: 1024px;
+$desktop: "only screen and (min-width: #{$desktop-width})";
+$not-desktop: "only screen and (max-width: #{$desktop-width - 1})";
 
 $z-indexes: (
   grid: (

@@ -79,7 +79,7 @@
     background: var(--color-primary);
     color: var(--font-color-secondary);
 
-    @media #{$phone} {
+    @media #{$tablet} {
       --default-nav-height: 90px;
       --default-nav-shrink: 0px;
       overflow: hidden;
@@ -92,7 +92,7 @@
       height: var(--headshot-height);
       border-radius: calc(var(--headshot-height) /2);
       transition: height 1s, border-radius 1s;
-      @media #{$phone} {
+      @media #{$tablet} {
         --headshot-height: calc(var(--global-nav-height, var(--default-nav-height)) / 2);
       }
     }
@@ -111,7 +111,7 @@
         display: inline-block;
         transform: translateX(-50%);
         transition: transform 1s;
-        @media #{$phone} {
+        @media #{$tablet} {
           font-size: 0.8em;
           vertical-align: center;
         }
@@ -121,13 +121,13 @@
 
     .contacts-scroller-container {
       width: 100vw;
-      @media #{$not-mobile} {
+      @media #{$desktop} {
         display: block;
         text-align: left;
         transform: translateX(50%);
         transition: transform 1s;
       }
-      @media #{$phone} {
+      @media #{$tablet} {
         overflow: hidden;
         position: relative;
         height: 100%
@@ -142,10 +142,10 @@
       white-space: nowrap;
       transition: transform 1s;
       scroll-behavior: smooth;
-      @media #{$not-mobile} {
+      @media #{$desktop} {
         transform: translateX(-50%);
       }
-      @media #{$phone} {
+      @media #{$tablet} {
         width: 100%;
         position: absolute;
         top: 0;
@@ -162,13 +162,13 @@
         display: inline-block;
         --icon-size: 16px;
 
-        @media #{$phone} {
+        @media #{$tablet} {
           position: relative;
         }
 
         @mixin scroll-trigger($left, $right) {
           display: none;
-          @media #{$phone} {
+          @media #{$tablet} {
             position: absolute;
             display: inherit;
             opacity: 0;
@@ -192,7 +192,7 @@
           color: var(--font-color-secondary);
         }
 
-        @media #{$phone} {
+        @media #{$tablet} {
           width: 100vw;
           scroll-snap-align: start;
         }
@@ -208,7 +208,7 @@
 
         &::before {
           display: inline-block;
-          @media #{$phone} {
+          @media #{$tablet} {
             @include arrow(left, 180deg);
           }
         }
@@ -218,7 +218,7 @@
           width: 15px;
           display: inline-block;
           text-align: center;
-          @media #{$phone} {
+          @media #{$tablet} {
             @include arrow(right, 0);
           }
         }
@@ -231,7 +231,7 @@
     }
 
     &.shrink {
-      @media #{$not-mobile} {
+      @media #{$desktop} {
 
         .full-name-container {
           transform: translateX(0%);
