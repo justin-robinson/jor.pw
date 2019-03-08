@@ -89,7 +89,7 @@
         }
       }
 
-      a {
+      :link, :visited {
         color: var(--font-color-primary);
       }
     }
