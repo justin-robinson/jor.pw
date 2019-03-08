@@ -62,7 +62,7 @@
 
 <style>
   :root {
-    --color-primary: #ff9900;
+    --color-primary: #0077ff;
     --font-color-primary: #000;
     --font-color-secondary: #fff;
   }
