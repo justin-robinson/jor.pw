@@ -4,15 +4,6 @@
     <h1 class="full-name-container">
       <span class="full-name">{{ fullName }}</span>
     </h1>
-    <div class="contacts-scroller-container">
-      <div ref="contacts" class="contacts">
-        <div class="contact" v-for="link in links">
-          <div class="scroll" data-direction="left" v-on:click="scrollHorizontalClick"></div>
-          <a class="link" v-bind:href="link.href">{{ link.text }}</a>
-          <div class="scroll" data-direction="right" v-on:click="scrollHorizontalClick"></div>
-        </div>
-      </div>
-    </div>
   </nav>
 </template>
 
@@ -23,19 +14,10 @@
   export default class Nav extends Vue {
     private scrollYThreshold = 120;
     private hasShrunken = false;
-    private scrollTriggers!: NodeListOf<any>;
 
     @Prop() private fullName!: '';
     @Prop() private headshotImageName!: '';
-    @Prop() private links!: object[];
     @Prop() private scrollPosition!: number;
-
-    private scrollHorizontalClick(event: Event) {
-      const direction = (event.currentTarget as HTMLElement).dataset.direction;
-      const scroller = this.$refs.contacts as HTMLElement;
-      const scrollAmount = scroller.clientWidth * (direction === 'left' ? -1 : 1);
-      scroller.scrollLeft += scrollAmount;
-    }
 
     @Watch('scrollPosition')
     private onScrollPositionChanged(scrollPosition: number) {
@@ -88,7 +70,7 @@
       left: var(--padding);
       top: var(--padding);
       height: var(--headshot-height);
-      border-radius: calc(var(--headshot-height) /2);
+      border-radius: 50%;
       transition: height 1s, border-radius 1s;
       @media #{$tablet} {
         --headshot-height: calc(var(--global-nav-height, var(--default-nav-height)) / 2);
@@ -98,133 +80,23 @@
     .full-name-container {
       text-align: left;
       margin: 0 auto;
-      font-size: 3em;
+      font-size: calc(var(--global-nav-height, var(--default-nav-height)) - var(--global-nav-shrink, var(--default-nav-shrink)) - 10px);
       font-weight: normal;
       display: block;
       width: 100vw;
-      transform: translateX(50%);
-      transition: transform 1s, padding-left 1s;
+      transform: translate(50%, -50%);
+      top: 50%;
+      position: relative;
+      transition: transform 1s, padding-left 1s, font-size 1s;
+
+      @media #{$phone} {
+        font-size: 10vw;
+      }
 
       .full-name {
         display: inline-block;
         transform: translateX(-50%);
         transition: transform 1s;
-        @media #{$tablet} {
-          font-size: 0.8em;
-          vertical-align: center;
-        }
-      }
-    }
-
-
-    .contacts-scroller-container {
-      width: 100vw;
-      @media #{$desktop} {
-        display: block;
-        text-align: left;
-        transform: translateX(50%);
-        transition: transform 1s;
-      }
-      @media #{$tablet} {
-        overflow: hidden;
-        position: relative;
-        height: 100%
-      }
-    }
-
-    .contacts {
-      display: inline-block;
-      font-size: 1em;
-      bottom: 5px;
-      margin: 0;
-      white-space: nowrap;
-      transition: transform 1s;
-      scroll-behavior: smooth;
-      @media #{$desktop} {
-        transform: translateX(-50%);
-      }
-      @media #{$tablet} {
-        width: 100%;
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        overflow: auto;
-        scroll-snap-stop: always;
-        scroll-snap-type: x mandatory;
-        scroll-snap-points-x: repeat(100%);
-        scroll-snap-type: mandatory;
-      }
-
-      .contact {
-        display: inline-block;
-        --icon-size: 16px;
-
-        @media #{$tablet} {
-          position: relative;
-        }
-
-        @mixin scroll-trigger($left, $right) {
-          display: none;
-          @media #{$tablet} {
-            position: absolute;
-            display: inherit;
-            opacity: 0;
-            height: 2em;
-            width: 20vw;
-            left: $left;
-            right: $right;
-            z-index: 10000;
-          }
-        }
-
-        .scroll[data-direction="left"] {
-          @include scroll-trigger(0, unset);
-        }
-
-        .scroll[data-direction="right"] {
-          @include scroll-trigger(unset, 0);
-        }
-
-        .link {
-          color: var(--font-color-secondary);
-        }
-
-        @media #{$tablet} {
-          width: 100vw;
-          scroll-snap-align: start;
-        }
-
-        @mixin arrow($float, $rotation) {
-          background: url('/assets/right-arrow.svg');
-          content: '';
-          float: $float;
-          height: var(--icon-size);
-          width: var(--icon-size);
-          transform: rotate($rotation);
-        }
-
-        &::before {
-          display: inline-block;
-          @media #{$tablet} {
-            @include arrow(left, 180deg);
-          }
-        }
-
-        &::after {
-          content: '\2022';
-          width: 15px;
-          display: inline-block;
-          text-align: center;
-          @media #{$tablet} {
-            @include arrow(right, 0);
-          }
-        }
-
-        &:first-child:before, &:last-child:after {
-          background: unset;
-          content: '';
-        }
       }
     }
 
@@ -232,19 +104,11 @@
       @media #{$desktop} {
 
         .full-name-container {
-          transform: translateX(0%);
+          transform: translate(0, -50%);
           padding-left: calc(var(--headshot-height) + var(--padding)*2);
 
           .full-name {
             transform: translateX(0%);
-          }
-        }
-
-        .contacts-scroller-container {
-          transform: translateX(100%);
-
-          .contacts {
-            transform: translate(-100%, -2em);
           }
         }
       }

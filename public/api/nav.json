@@ -4,19 +4,19 @@
   "links": [
     {
       "href": "mailto:jrob09bhs@gmail.com",
-      "text": "jrob09bhs@gmail.com"
+      "icon": "message.svg"
     },
     {
       "href": "tel:18033209005",
-      "text": "803.320.9005"
+      "icon": "phone.svg"
     },
     {
       "href": "https://github.com/justin-robinson",
-      "text": "github.com/justin-robinson"
+      "icon": "github.svg"
     },
     {
       "href": "https://www.linkedin.com/in/justin-robinson-0734a665/",
-      "text": "LinkedIn"
+      "icon": "linkedin.svg"
     }
   ]
 }

@@ -4,26 +4,27 @@
             v-bind:scrollPosition="scrollTop"
             :fullName="$store.state.nav.fullName"
             :headshotImageName="$store.state.nav.headshotImageName"
-            :links="$store.state.nav.links"
     />
     <div class="grid">
       <div class="item">
         <Home/>
       </div>
     </div>
+    <Button :secondary-buttons="$store.state.nav.links"/>
     <DeviceType/>
   </div>
 </template>
 
 <script lang="ts">
   import {Component, Vue} from 'vue-property-decorator';
+  import Button from '@/components/floatingActionButton/Button.vue';
+  import DeviceType from '@/components/DeviceType.vue';
   import Home from '@/components/Home.vue';
   import Nav from '@/components/Nav.vue';
-  import DeviceType from '@/components/DeviceType.vue';
 
   @Component({
     components: {
-      DeviceType, Home, Nav,
+      DeviceType, Button, Home, Nav,
     },
   })
   export default class App extends Vue {
@@ -74,6 +75,10 @@
 
     @media #{$tablet} {
       --global-nav-height: 80px;
+    }
+
+    @media #{$phone} {
+      --global-nav-height: 60px;
     }
   }
 
