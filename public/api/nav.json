@@ -3,14 +3,6 @@
   "headshotImageName": "headshot.png",
   "links": [
     {
-      "href": "mailto:jrob09bhs@gmail.com",
-      "icon": "message.svg"
-    },
-    {
-      "href": "tel:18033209005",
-      "icon": "phone.svg"
-    },
-    {
       "href": "https://github.com/justin-robinson",
       "icon": "github.svg"
     },
