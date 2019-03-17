@@ -1,4 +1,4 @@
-# jor.pw
+# justinrobinson.dev
 
 ## Project setup
 ```
