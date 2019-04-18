@@ -77,7 +77,7 @@
       "data": [
         {
           "subtitle": "Queen City Hackathon 1st Place",
-          "detailsHTML": "<span>24 hour hackathon with over 200 individual participants and $10k prize for 1st place. Submitted a prototype machine learning model to help users estimate healthcare costs prior to visit using crowdsourced healthcare data</span><div><a href=\"https://abdsociety.org/queen-city-hackathon\" target=\"_blank\">Details</a> <a href=\"https://github.com/justin-robinson/clthackathon2017 target=\"_blank\"\">Source Code</a></div>",
+          "detailsHTML": "<span>24 hour hackathon with over 200 individual participants and $10k prize for 1st place. Submitted a prototype machine learning model to help users estimate healthcare costs prior to visit using crowdsourced healthcare data</span><div><a href=\"https://abdsociety.org/queen-city-hackathon\" target=\"_blank\">Details</a> <a href=\"https://github.com/justin-robinson/clthackathon2017\", target=\"_blank\"\">Source Code</a></div>",
           "imageName": "queen-city-hackathon.png",
           "headerRightTitle": "2017"
         }
